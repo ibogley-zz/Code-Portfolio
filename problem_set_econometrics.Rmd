@@ -1,0 +1,177 @@
+---
+title: "PS4"
+author: "The Bogster"
+date: "11/21/2019"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# PS4
+## Prolouge:
+Lets load our packages
+```{r}
+library(pacman)
+p_load(tidyverse, magrittr, ggplot2, lmtest, AER, lfe)
+```
+
+## 1.
+### a. Define stationarity:
+3 parts to the definition,
+
+#### i. The mean of the distribution is independent of time  
+(E[X_t] = E[X_t-k])
+
+#### ii. variance of the distribution is independent of time 
+(Var[X_t] = Var[x_t-k])
+
+#### iii. Covariance between x_t and x_t-k depends only on k 
+(cov[x_t, x_t-k] = cov(x_s, x_s-k))
+
+### b. If our disturbance term u_t follows a random walk: u_t = u_t-1 + e_t then its variance is Var(u_t) = t(sigma_t^2)
+
+This expression shows that the disturbance is nonstationary because it violates part ii, because the fact that t is involved in the description of variance means that it is partially dependent on the time t.
+
+### c. Assume an AR(1) process such that u_t = p*u_t-1 + e_t Under which circumstances would this AR(1) process become a random walk?
+
+To fulfill the formula of a random walk, p must follow p=1, as opposed to the stationarity version in the Dickey-Fuller test where |p| < 1
+
+
+## 2.
+### a. Generate the first 40-period random walk. We will name it m.
+
+m_t = m_t-1 +e_t
+
+Where e_t comes from a normal distribution with mean = 0, sigma = 1
+Following is random walk model m:
+```{r}
+random_walk_m = function(seed){
+#set a seed
+set.seed(seed)
+#create n vector
+m = c()
+#create an error term
+e = rnorm(40, mean = 0, sd = 1)
+#generate initial number
+m[1] <- rnorm(1, mean = 0, sd = 1)
+  #loop through this with a 'for' loop
+  for (i in 2:40) {
+    m[i] = m[i-1] + e[i]
+  }
+  return(m)
+}
+vec_m <- random_walk_m(seed = 9123)
+head(vec_m)
+```
+
+### b. generate a 40 period random walk called n, exact same as 2a but with different seed: random walk n
+
+```{r}
+random_walk_n = function(seed){
+#set a seed
+set.seed(seed)
+#create n vector
+n = c()
+#create an error term
+e = rnorm(40, mean = 0, sd = 1)
+#generate initial number
+n[1] <- rnorm(1, mean = 0, sd = 1)
+  #loop through this with a 'for' loop
+  for (i in 2:40) {
+    n[i] = n[i-1] + e[i]
+  }
+  return(n)
+}
+vec_n <- random_walk_n(seed = 5678)
+head(vec_n)
+```
+
+### c. We independently generated these two time series. Ideally, should we find a statistically significant relationship between the 2 series? Explain.
+Ideally we shouldn't see a relationship, because the 2 error terms that we use to create the random walks are not causally related in the way that they are created. However, since the way that we get the error terms are the same, it will seem like the 2 random walks are correlated.
+
+### d. Regress m on n, report the results from the t test. Do they match your expectations from 2c?
+
+Now we will regress m on n:
+Is this the right regression?
+```{r}
+lm_mvsn <- lm(vec_m ~ vec_n)
+summary(lm_mvsn)
+```
+No it does not match the estimate in 2c; there appears to be a statistically significant relationship between the 2 even though they are not causally related.
+
+## 3.
+### a. Calculate the treatment effect for each individual
+T1: 21 - 11 = 10
+T2: 19 - 17 = 2
+T3: 7  - 3  = 4
+T4: 9  - 7  = 2
+
+### b. Is the treatment effect constant across individuals?
+No, false
+
+### c. Calculate the average treatment effect
+(10 + 2 + 4 + 2)/4 = 4.5
+
+### d. Estimate the average treatment effect by comparing the mean of the treatment group vs the mean of the control group:
+
+mean(y_1) = (7 + 9)/2 = 8
+mean(y_0) = (11 + 17)/2 = 14
+
+y_1 - y_0 = -6
+
+### e.Should we expect the estimator in 3d to provide unbiased estimates?
+No. Selection bias is very prevalent in this dataset.
+
+### f. What is the fundamental problem of causal inference?
+
+Given an individual i in a data set testing a treatment:
+Generally it is important to test the effect of a treatment of a single individual. We can choose whether to test y_1i (with treatment)  or y_0i (without treatment). As such, we can never have y_1i and y_0i at the same time.
+
+### 4.
+#### a.Load and inspect the dataset
+
+```{r}
+wage_data <- read.csv("C:/Users/IB/Desktop/school/EC 421/lab scripts/PS4/wages.csv")
+summary(wage_data)
+```
+
+
+### b. What are the two requirements for a valid instrument?
+The 2 following conitions are required to be a valid instrument:
+
+#### i. Relevant = correlated with explanatory variable
+
+#### ii. exogenous = uncorrelated with the disturbance
+
+### c.We need an instrument for (endogenous) education. Do you think the variable n_kids (the number of children) would be a valid instrument? Explain why it passes/fails ech of the two requirements for a valid instrument.
+
+We will now run a regression to test the correlation of n_kids with our explanatory variable:
+```{r}
+lm_instrument <- lm(education ~ n_kids, data = wage_data)
+summary(lm_instrument)
+```
+With a p value of 6.21e-07, n_kids fulfills the requirement i of being a valid instrument.
+
+Now for the 2nd condition: is it exogenous? The answer would come from whether there are variables in the disturbance that are correlated with n_kids. I would argue there are variables like that in this model. For example, more kids might correlate with less parental income. Another example might be that n_kids correlates with age, as more kids takes time, implying a correlation between age and n_kids.
+
+### d.We can test the relevance of our instrument by estimating the 1st stage, regressing our endogenous variable education on our (potential) instrument n_kids. Is there evidence that our potential instrument is relevant? Explain using a statistical test and interpret the coeffcient.
+
+Using the above regression (lm_instrument), we can see that n_kids is relevent, as the coefficient test results in a p value of 6.21e-07, meaning we reject the null hypothesis that n_kids is not relevant to education. The coefficient B1 of n_kids is -0.47242, meaning that for every added kid, on average an individual's education decreases by .47242 years.
+
+### e.Let's assume number of children is a valid instrument for education. Using the number of children (n_kids) as an instrument for education (education), estimate the returns to education via instrumental variables (IV).
+
+Interpret the coefficient that gives the returns to education and its signicance.
+
+```{r}
+p_load(estimatr)
+iv_test <- iv_robust(wage ~ education | n_kids, data = wage_data)
+summary(iv_test)
+```
+Coefficient of B1 in this scenario is 0.333, saying that each extra year of education directly accounts for an increase in wages by 0.333.
+However, the p value is 0.1344, meaning that the coefficient is not statistically significant at the 5% level. This in terms means there is not enough evidence to reject the null hypothesis that education has no effect on wages.
+
+### f.Would you trust this estimate of the returns to education? Why?
+
+No, because we question the legitimacy of n_kids as an instrument.
