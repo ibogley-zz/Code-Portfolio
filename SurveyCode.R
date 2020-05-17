@@ -4,16 +4,16 @@ library(pacman)
 p_load(readxl,cellranger,base)
 
 ## Data ##
-data <-  read_xlsx("C:/Users/IB/Desktop/Sheltercare/2020 Employee Satisfaction Survey (Responses).xlsx",range = cell_limits(c(2,2), c(64,24)))
-Meaning1 <- data$`Meaningful Work [I feel appreciated for the work that I do at ShelterCare.]`
-Meaning2 <- data$`Meaningful Work [I can envision working for ShelterCare for an extended period.]`
-Meaning3 <- data$`Meaningful Work [My work at ShelterCare helps meet an important need in the community.]`
+data <-  read_xlsx("C:/Users/IB/Desktop/**Nonprofit**/2020 Employee Satisfaction Survey (Responses).xlsx",range = cell_limits(c(2,2), c(64,24)))
+Meaning1 <- data$`Meaningful Work [I feel appreciated for the work that I do at **Nonprofit**.]`
+Meaning2 <- data$`Meaningful Work [I can envision working for **Nonprofit** for an extended period.]`
+Meaning3 <- data$`Meaningful Work [My work at **Nonprofit** helps meet an important need in the community.]`
 Meaning4 <- data$`Meaningful Work [My voice is heard in my department/program]`
-Meaning5 <- data$`Meaningful Work [The internal culture at ShelterCare is in line with the organizational mission and values.]`
+Meaning5 <- data$`Meaningful Work [The internal culture at **Nonprofit** is in line with the organizational mission and values.]`
 Emotion  <- data$`Emotional Safety in the Workplace (1 completely unsafe, 10 completely safe)`
 Physical <- data$`Physical Safety in the Workplace (1 completely unsafe, 10 completely safe)`
 Super1   <- data$`Supervision [Acknowledges the accomplishments and hard work of the team.]`
-Super2   <- data$`Supervision [Communicates the needs of my program/department to the rest of ShelterCare.]`
+Super2   <- data$`Supervision [Communicates the needs of my program/department to the rest of **Nonprofit**.]`
 Super3   <- data$`Supervision [Effective at problem solving when unexpected challenges arise.]`
 Super4   <- data$`Supervision [Effectively communicated with all team members.]`
 Super5   <- data$`Supervision [Encourages career development.]`
@@ -25,7 +25,7 @@ Exec2    <- data$`Management/Executive Leadership [Acknowledges the accomplishme
 Exec3    <- data$`Management/Executive Leadership [Holds effective meetings as needed for the team.]`
 Exec4    <- data$`Management/Executive Leadership [Effective at problem solving when unexpected challenges arise.]`
 Exec5    <- data$`Management/Executive Leadership [Sufficiently meets requirements for audits, contracts, and/or billings with outside agencies.]`
-Exec6    <- data$`Management/Executive Leadership [Communicates the needs of my program/department to the rest of ShelterCare.]`
+Exec6    <- data$`Management/Executive Leadership [Communicates the needs of my program/department to the rest of **Nonprofit**.]`
 Exec7    <- data$`Management/Executive Leadership [Provides appropriate & applicable training opportunities.]`
 Exec8    <- data$`Management/Executive Leadership [Encourages career development.]`
 
@@ -40,15 +40,15 @@ rord2    <- c("Excellent", "Sufficient", "Minimal", "Poor")
 ## Infographic of each question
 #Meaning1
 CountM1 <- c(24,22,10,4)
-barplot(CountM1,names.arg = rord1,ylab = "Frequency", main = "I feel appreciated for the work that I do at ShelterCare.", col = clr)
+barplot(CountM1,names.arg = rord1,ylab = "Frequency", main = "I feel appreciated for the work that I do at **Nonprofit**.", col = clr)
 
 #Meaning2
 CountM2 <- c(28,18,9,5)
-barplot(CountM2,names.arg = rord1,ylab = "Frequency", main = "I can envision working for ShelterCare for an extended period.", col = clr)
+barplot(CountM2,names.arg = rord1,ylab = "Frequency", main = "I can envision working for **Nonprofit** for an extended period.", col = clr)
 
 #Meaning3
 CountM3 <- c(49,9,1,1)
-barplot(CountM3,names.arg = rord1,ylab = "Frequency", main = "My work at ShelterCare helps meet an important need in the community.", col = clr)
+barplot(CountM3,names.arg = rord1,ylab = "Frequency", main = "My work at **Nonprofit** helps meet an important need in the community.", col = clr)
 
 #Meaning4
 CountM4 <- c(32,16,8,4)
@@ -56,7 +56,7 @@ barplot(CountM4,names.arg = rord1,ylab = "Frequency", main = "My voice is heard 
 
 #Meaning5
 CountM5 <- c(28,21,10,1)
-barplot(CountM5,names.arg = rord1,ylab = "Frequency", main = "The internal culture at ShelterCare is in line with the organizational mission and values.", col = clr)
+barplot(CountM5,names.arg = rord1,ylab = "Frequency", main = "The internal culture at **Nonprofit** is in line with the organizational mission and values.", col = clr)
 
 #Emotion
 hist(Emotion, col = clr2, breaks = 4, main = "Emotional Safety")
@@ -70,7 +70,7 @@ barplot(CountS1,names.arg = rord2,ylab = "Frequency", main = "Acknowledges the a
 
 #Super2
 CountS2 <- c(29,22,7,2)
-barplot(CountS2,names.arg = rord2,ylab = "Frequency", main = "Communicates the needs of my program/department to the rest of ShelterCare.", col = clr)
+barplot(CountS2,names.arg = rord2,ylab = "Frequency", main = "Communicates the needs of my program/department to the rest of **Nonprofit**.", col = clr)
 
 #Super3
 CountS3 <- c(24,23,7,6)
@@ -118,7 +118,7 @@ barplot(CountE5,names.arg = rord2,ylab = "Frequency", main = "Sufficiently meets
 
 #Exec6
 CountE6 <- c(12,24,15,8)
-barplot(CountE6,names.arg = rord2,ylab = "Frequency", main = "Communicates the needs of my program/department to the rest of ShelterCare.", col = clr)
+barplot(CountE6,names.arg = rord2,ylab = "Frequency", main = "Communicates the needs of my program/department to the rest of **Nonprofit**.", col = clr)
 
 #Exec7
 CountE7 <- c(13,22,19,6)
