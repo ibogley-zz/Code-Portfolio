@@ -7,9 +7,11 @@ As time progresses, I plan to add projects using public data, so as to publish r
 
 Here is a visual mapping of the portfolio so far:
 
-| -- case_study ------ case_study.docx
+```{portfolio_map}
+
+| -- case_study(folder) ------ case_study.docx
 |
-| -- survey     ------ survey_2020.docx
+| -- survey    (folder) ------ survey_2020.docx
 |
 | - .gitignore
 |
@@ -20,3 +22,5 @@ Here is a visual mapping of the portfolio so far:
 | - code_portfolio.Rproj
 |
 | - resume.pdf
+
+```
