@@ -137,7 +137,7 @@ ggplot(data = GDP_data) +
   ), color = "blue") +
   labs(
     title = "GDP of the US",
-    subtitle = "Quarterly") +
+    subtitle = "Quarterly forecast with 95% Confidence Interval") +
   xlab("Quarter (Year-Q)") + ylab("GDP (Billions $USD)") +
   geom_ribbon(data = fore, 
               mapping = aes(
