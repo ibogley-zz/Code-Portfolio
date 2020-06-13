@@ -1,0 +1,156 @@
+---
+title: "GDP Forecast"
+author: "Ian Bogley"
+date: "6/12/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## ARIMA Forecast: Nominal GDP of the United States
+
+For this project, we will conduct a simple ARIMA model forecast of the nominal GDP for the US. Note that this forecast does not take into account the implications of structural changes in the US economy due to the coronavirus nor the black lives matters demonstrations. As such, this cannot be considered a comprehensive forecast, only a demonstration in my ability to use the arima methodology to generate predictions in R.
+
+```{r intro}
+    ##Packages##
+library(pacman)
+p_load(httr,tidyverse,jsonlite,lubridate,zoo,
+       ggplot2,tseries,forecast)
+
+    ##Variables##
+#FRED specific
+api_key   <- Sys.getenv("FRED_API_KEY")
+endpoint  <- "series/observations"
+#Dates
+start     <- as.Date("1990-01-01") 
+end       <- as.Date("2020-01-01")
+forestart <- as.yearqtr("2020 Q2")
+foreend   <- as.yearqtr("2022 Q3")
+
+    ##Data##
+params_GDP =
+  list(
+    api_key   = api_key,
+    file_type = "json",
+    series_id = "GDP"
+)
+
+GDP_URL <- GET(url="https://api.stlouisfed.org/",
+             path=paste0("fred/",endpoint),
+             query=params_GDP)
+GDP_data <- GDP_URL %>%
+  content("text") %>%
+  fromJSON() %>%
+  pluck("observations") %>%
+  as_tibble() %>%
+  filter(date>=start) %>% filter(date<=end)%>%
+  mutate(
+    year    = year(date),
+    quarter = quarter(date),
+    value   = as.numeric(value)
+    ) %>%
+  unite(quarter, c("year", "quarter"), sep ="-") %>%
+  mutate(
+    realtime_start = NULL,
+    realtime_end   = NULL,
+    date           = NULL,
+    gdp            = value,
+    value          = NULL,
+    quarter        = as.yearqtr(quarter),
+    d_gdp          = c(NA, diff(gdp)),
+    d2_gdp         = c(NA,diff(d_gdp))
+    )
+GDP_data
+```
+
+Now let's begin by testing the gdp time series for stationarity. To do so, we can use the dickey fuller test, with a null hypothesis that there exists a unit root within the data. 
+
+```{r level}
+ggplot(data = GDP_data) +
+  geom_line(mapping = aes(
+      x = quarter,
+      y = gdp
+      ), color = "blue") +
+  labs(title = "GDP of the US", subtitle = "Quarterly") +
+  xlab("Quarter (Year-Q)") + ylab("GDP (Billions $USD)")
+
+adf.test(GDP_data$gdp)
+```
+
+We see that having failed to reject the null hypothesis, there is evidence of a unit root in the gdp level series. As such, we will first difference and try again.
+
+```{r diff1}
+ggplot(data = GDP_data) +
+  geom_line(mapping = aes(
+    x = quarter,
+    y = d_gdp
+  ), color = "blue") +
+  labs(
+    title = "First Difference, GDP of the US", 
+    subtitle = "Quarterly"
+    ) +
+  xlab("Quarter (Year-Q)") + ylab("GDP (Billions $USD)") +
+  geom_hline(yintercept = 0)
+
+adf.test(na.remove(GDP_data$d_gdp))
+```
+
+While the dickey fuller test rejects the null hypothesis at the 5% level, it seems that the auto.arima function prefers to difference again. I assume this is due to a higher threshold (1% significance leve as opposed to 5%), so we will abide by the same rule. 
+
+```{r diff2}
+ggplot(data = GDP_data) +
+  geom_line(mapping = aes(
+    x = quarter,
+    y = d2_gdp
+  ), color = "blue") +
+  labs(title = "Second Difference, GDP of the US", subtitle = "Quarterly") +
+  xlab("Quarter (Year-Q)") + ylab("GDP (Billions $USD)") +
+  geom_hline(yintercept = 0)
+
+adf.test(na.remove(GDP_data$d2_gdp))
+```
+With the error stating that the p-values is less than the printed 0.01, we can state that the null hypothesis is successfully rejected at the 1% significance level. This implies that we have obtained stationarity and can proceed with our forecast.
+
+```{r model}
+arima_model <- auto.arima(GDP_data$gdp)
+arima_model
+```
+
+Now that we have selected a model, we can forecast the model into the future.
+
+```{r fore}
+fore <- forecast(arima_model) %>%
+  as.data.frame() %>%
+  tibble() %>%
+  mutate(
+    quarter = as.yearqtr(
+      seq.Date(as.Date(forestart),
+               as.Date(foreend),
+               by="quarter")))
+
+ggplot(data = GDP_data) +
+  geom_line(mapping = aes(
+    x = quarter,
+    y = gdp
+  ), color = "blue") +
+  labs(
+    title = "GDP of the US",
+    subtitle = "Quarterly") +
+  xlab("Quarter (Year-Q)") + ylab("GDP (Billions $USD)") +
+  geom_ribbon(data = fore, 
+              mapping = aes(
+                x = quarter,
+                ymin = `Lo 95`,
+                ymax = `Hi 95`), 
+              fill = "green", 
+              alpha = .2) +
+  geom_line(data = fore, 
+            mapping=aes(
+              x = quarter,
+              y = `Point Forecast`), 
+            col = "red")
+```
+
+This shows the current forecast according to the ARIMA model chosen over the next 10 quarters.
