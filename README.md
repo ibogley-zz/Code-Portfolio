@@ -8,10 +8,16 @@ As time progresses, I plan to add projects using public data, so as to publish r
 Here is a visual mapping of the portfolio so far:
 
 ```{portfolio_map}
-
-| -- case_study(folder) ------ case_study.docx
+| -- arima_forecast(folder) ------ arima_forecast.md
+|                                  arima_forecast.Rmd
+|                                  arima_forecast_files ------ figure-gfm ----- diff1-1.png
+|                                                                               diff2-1.png
+|                                                                               fore-1.png
+|                                                                               level-1.png
 |
-| -- survey    (folder) ------ survey_2020.docx
+| -- case_study    (folder) ------ case_study.docx
+|
+| -- survey        (folder) ------ survey_2020.docx
 |
 | - .gitignore
 |
