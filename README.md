@@ -19,7 +19,7 @@ Here is a visual mapping of the portfolio so far:
 | -- case_study     (A project focusing on the evolution of the retail market, including forecasts) 
 |                           ------ case_study.docx
 |
-| -- survey         (folder) 
+| -- survey         (A project focusing on how to utilize employee satisfaction data) 
 |                           ------ survey_2020.docx
 |
 | - .gitignore
