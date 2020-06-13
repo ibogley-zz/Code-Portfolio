@@ -143,11 +143,12 @@ While the dickey fuller test rejects the null hypothesis at the 5%
 level, it seems that the auto.arima function prefers to difference
 again. I assume this is due to a higher threshold (1% significance leve
 as opposed to 5%), so we will abide by the same rule. When looking at
-the error that is provided during this step, I would argue that it is
-unimportant. I think that the error references that for the first
-difference of the data, the first observation is NA, which is why 1 row
-is removed from the plot. A similar error occurs in the next step as
-well, which I will ignore, subscribing to the reasoning above.
+the error that is provided during this step, I would argue that it isn’t
+worth worrying about. I think that the error references occurs due to
+the first observation in the first difference data series being NA,
+which is why 1 row is removed from the plot. A similar error occurs in
+the next step as well, which I will ignore, subscribing to the reasoning
+above.
 
 ``` r
 ggplot(data = GDP_data) +
