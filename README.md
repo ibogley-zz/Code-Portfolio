@@ -8,16 +8,19 @@ As time progresses, I plan to add projects using public data, so as to publish r
 Here is a visual mapping of the portfolio so far:
 
 ```{portfolio_map}
-| -- arima_forecast(folder) ------ arima_forecast.md
+| -- arima_forecast (A forecast of US Nominal GDP) 
+|                           ------ arima_forecast.md (github document)
 |                                  arima_forecast.Rmd
 |                                  arima_forecast_files ------ figure-gfm ----- diff1-1.png
 |                                                                               diff2-1.png
 |                                                                               fore-1.png
 |                                                                               level-1.png
 |
-| -- case_study    (folder) ------ case_study.docx
+| -- case_study     (A project focusing on the evolution of the retail market, including forecasts) 
+|                           ------ case_study.docx
 |
-| -- survey        (folder) ------ survey_2020.docx
+| -- survey         (folder) 
+|                           ------ survey_2020.docx
 |
 | - .gitignore
 |
