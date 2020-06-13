@@ -472,7 +472,7 @@ GDP_data</code></pre>
 ## data:  na.remove(GDP_data$d_gdp)
 ## Dickey-Fuller = -3.5917, Lag order = 4, p-value = 0.037
 ## alternative hypothesis: stationary</code></pre>
-<p>While the dickey fuller test rejects the null hypothesis at the 5% level, it seems that the auto.arima function prefers to difference again. I assume this is due to a higher threshold (1% significance leve as opposed to 5%), so we will abide by the same rule.</p>
+<p>While the dickey fuller test rejects the null hypothesis at the 5% level, it seems that the auto.arima function prefers to difference again. I assume this is due to a higher threshold (1% significance leve as opposed to 5%), so we will abide by the same rule. When looking at the error that is provided during this step, I would argue that it is unimportant. I think that the error references that for the first difference of the data, the first observation is NA, which is why 1 row is removed from the plot. A similar error occurs in the next step as well, which I will ignore, subscribing to the reasoning above.</p>
 <pre class="r"><code>ggplot(data = GDP_data) +
   geom_line(mapping = aes(
     x = quarter,
