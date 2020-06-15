@@ -18,8 +18,15 @@ library(pacman)
 p_load(here)
 ```
 
+Now to read in the data:
 
 ```{r data}
-data <- read.csv(here("/"))
+data <- read.csv(here("data/1976-2016-president.csv"))
+```
+
+Now, we will use sql to query the database
+
+```{sql connection=}
+
 ```
 
