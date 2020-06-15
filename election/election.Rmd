@@ -1,0 +1,25 @@
+---
+title: "2016 Election Analysis"
+author: "Ian Bogley"
+date: "6/13/2020"
+output: github document
+bibliography: 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 2016 Election Analysis
+Today, we will query information on the US presidential election  from 1976-2016 via the Harvard Dataverse, referenced in the bibliography.
+
+```{r pack}
+library(pacman)
+p_load(here)
+```
+
+
+```{r data}
+data <- read.csv(here("/"))
+```
+
