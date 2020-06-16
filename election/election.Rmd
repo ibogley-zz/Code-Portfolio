@@ -3,7 +3,7 @@ title: "2016 Election Analysis"
 author: "Ian Bogley"
 date: "6/13/2020"
 output: github document
-bibliography: 
+bibliography: "election/harvarddataversebib.txt"
 ---
 
 ```{r setup, include=FALSE}
