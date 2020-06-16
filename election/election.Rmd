@@ -13,7 +13,7 @@ Today, we will query information on the US presidential election  from 1976-2016
 
 ```{r pack}
 library(pacman)
-p_load(here,RSQLite,dbplyr,DBI,tidyverse,ggplot2,scales)
+p_load(here,RSQLite,dbplyr,DBI,tidyverse,ggplot2,scales,gganimate,knitr,gifski,png)
 ```
 
 Now to read in the data:
@@ -38,7 +38,7 @@ copy_to(
   )
 ```
 
-Let's query the database, starting by narrowing down to democrats and republicans. Then, lets aggregate by year to get the total votes cast for each party in a presidential election. We will also create a column with a binary result denoting who won the popular vote.
+Let's query the database, starting by narrowing down to democrats and republicans. Then, lets aggregate by year to get the total votes cast for each party in a presidential election. We will also create a column with a binary result denoting who won the popular vote, as well as percentages.
 
 ```{sql connection = con, output.var = "dvr_year_s"}
 SELECT year,party, sum(candidatevotes)
@@ -56,7 +56,10 @@ dvr_year <- dvr_year_s %>%
     'sum(candidatevotes)' = NULL,
     ) %>%
   group_by(year) %>%
-  mutate(popular = ifelse(votes==max(votes),1,0))
+  mutate(
+    popular    = ifelse(votes==max(votes),1,0),
+    percentage = votes/sum(votes)
+    )
 dvr_year
 ```
 
@@ -89,6 +92,23 @@ ggplot(data = dvr_year) +
     subtitle = "US Presidential Election"
     ) +
   xlab("Year") + ylab("Votes") 
+```
+
+For our next trick, we will create an animation showing how the ratio of republican democrat has shifted over time.
+
+
+```{r anim}
+ggplot(dvr_year) +
+  geom_bar(mapping = aes(x ="", y = percentage, fill = party), width = 1, stat = "identity") +
+  coord_polar("y", start=0) +
+  scale_fill_manual(
+    values = c("#0000FF","#FF0000")
+    ) +
+  transition_states(year) +
+  labs(
+    title = "Ratio of Democrat and Republican Voters",
+    subtitle = "Presidential Election: {closest_state}"
+    )
 ```
 
 
