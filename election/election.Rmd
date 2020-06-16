@@ -2,8 +2,8 @@
 title: "2016 Election Analysis"
 author: "Ian Bogley"
 date: "6/13/2020"
-output: github document
-bibliography: "election/harvarddataversebib.txt"
+output: github_document
+bibliography: 
 ---
 
 ```{r setup, include=FALSE}
@@ -22,7 +22,7 @@ Now to read in the data:
 
 ```{r data}
 data <- read.csv(here(
-  "data/1976-2016-president.csv"
+  "election/data/1976-2016-president.csv"
   ))
 ```
 
@@ -50,6 +50,7 @@ GROUP BY year,party
 ```
 
 ```{r dvr_year}
+dbDisconnect(conn = con)
 dvr_year <- dvr_year_s %>%
   mutate(
     party  = factor(party),
@@ -80,7 +81,7 @@ ggplot(data = dvr_year) +
     values = c("#0000FF","#FF0000")
     ) +
   scale_x_continuous(
-    breaks = years
+    breaks = unique(dvr_year$year)
   ) +
   scale_y_continuous(
     labels = unit_format(unit = "M",scale = 1e-6)
@@ -92,3 +93,4 @@ ggplot(data = dvr_year) +
   xlab("Year") + ylab("Votes") 
 ```
 
+Source:
