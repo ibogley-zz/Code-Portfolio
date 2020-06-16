@@ -8,7 +8,7 @@ As time progresses, I plan to add projects using public data, so as to publish r
 Here is a visual mapping of the portfolio so far:
 
 ```{portfolio_map}
-| -- arima_forecast (A forecast of US Nominal GDP) 
+| -- arima_forecast (A forecast of US Nominal GDP using ARIMA modeling) 
 |                           ------ arima_forecast.md (github document)
 |                                  arima_forecast.Rmd
 |                                  arima_forecast_files ------ figure-gfm ----- diff1-1.png
@@ -18,6 +18,14 @@ Here is a visual mapping of the portfolio so far:
 |
 | -- case_study     (A project focusing on the evolution of the retail market, including forecasts) 
 |                           ------ case_study.docx
+|
+|
+| -- election       (A project using sql to query information of presidential election data)
+|                           ------ data --------------------- 1976-2016-president.csv
+|                                  election.md (github document)
+|                                  election.Rmd
+|                                  election_files ----------- figure-gfm ----- plot1-1.png
+|
 |
 | -- survey         (A project focusing on how to utilize employee satisfaction data) 
 |                           ------ survey_2020.docx
