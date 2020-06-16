@@ -3,8 +3,6 @@
 Ian Bogley
 6/13/2020
 
-## 2016 Election Analysis
-
 Today, we will query information on the US presidential election from
 1976-2016 via the Harvard Dataverse, referenced in the bibliography.
 
