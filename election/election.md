@@ -8,7 +8,7 @@ Today, we will query information on the US presidential election from
 
 ``` r
 library(pacman)
-p_load(here,RSQLite,dbplyr,DBI,tidyverse,ggplot2,scales)
+p_load(here,RSQLite,dbplyr,DBI,tidyverse,ggplot2,scales,gganimate,knitr,gifski,png)
 ```
 
 Now to read in the data:
@@ -37,7 +37,8 @@ copy_to(
 Let’s query the database, starting by narrowing down to democrats and
 republicans. Then, lets aggregate by year to get the total votes cast
 for each party in a presidential election. We will also create a column
-with a binary result denoting who won the popular vote.
+with a binary result denoting who won the popular vote, as well as
+percentages.
 
 ``` sql
 SELECT year,party, sum(candidatevotes)
@@ -55,24 +56,27 @@ dvr_year <- dvr_year_s %>%
     'sum(candidatevotes)' = NULL,
     ) %>%
   group_by(year) %>%
-  mutate(popular = ifelse(votes==max(votes),1,0))
+  mutate(
+    popular    = ifelse(votes==max(votes),1,0),
+    percentage = votes/sum(votes)
+    )
 dvr_year
 ```
 
-    ## # A tibble: 22 x 4
+    ## # A tibble: 22 x 5
     ## # Groups:   year [11]
-    ##     year party         votes popular
-    ##    <int> <fct>         <int>   <dbl>
-    ##  1  1976 democrat   40680446       1
-    ##  2  1976 republican 38870893       0
-    ##  3  1980 democrat   35480948       0
-    ##  4  1980 republican 43642639       1
-    ##  5  1984 democrat   37449813       0
-    ##  6  1984 republican 54166829       1
-    ##  7  1988 democrat   41716679       0
-    ##  8  1988 republican 48642640       1
-    ##  9  1992 democrat   44856747       1
-    ## 10  1992 republican 38798913       0
+    ##     year party         votes popular percentage
+    ##    <int> <fct>         <int>   <dbl>      <dbl>
+    ##  1  1976 democrat   40680446       1      0.511
+    ##  2  1976 republican 38870893       0      0.489
+    ##  3  1980 democrat   35480948       0      0.448
+    ##  4  1980 republican 43642639       1      0.552
+    ##  5  1984 democrat   37449813       0      0.409
+    ##  6  1984 republican 54166829       1      0.591
+    ##  7  1988 democrat   41716679       0      0.462
+    ##  8  1988 republican 48642640       1      0.538
+    ##  9  1992 democrat   44856747       1      0.536
+    ## 10  1992 republican 38798913       0      0.464
     ## # ... with 12 more rows
 
 Now, lets use a barchart to show the proportions of voting throughout
@@ -110,6 +114,25 @@ ggplot(data = dvr_year) +
     ## Warning: Ignoring unknown aesthetics: width
 
 ![](election_files/figure-gfm/plot1-1.png)<!-- -->
+
+For our next trick, we will create an animation showing how the ratio of
+republican democrat has shifted over time.
+
+``` r
+ggplot(dvr_year) +
+  geom_bar(mapping = aes(x ="", y = percentage, fill = party), width = 1, stat = "identity") +
+  coord_polar("y", start=0) +
+  scale_fill_manual(
+    values = c("#0000FF","#FF0000")
+    ) +
+  transition_states(year) +
+  labs(
+    title = "Ratio of Democrat and Republican Voters",
+    subtitle = "Presidential Election: {closest_state}"
+    )
+```
+
+![](election_files/figure-gfm/anim-1.gif)<!-- -->
 
 ## Bibliography
 
