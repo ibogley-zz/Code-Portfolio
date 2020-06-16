@@ -1,33 +1,30 @@
----
-title: "2016 Election Analysis"
-author: "Ian Bogley"
-date: "6/13/2020"
-output: github_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+2016 Election Analysis
+================
+Ian Bogley
+6/13/2020
 
 ## 2016 Election Analysis
-Today, we will query information on the US presidential election  from 1976-2016 via the Harvard Dataverse, referenced in the bibliography.
 
-```{r pack}
+Today, we will query information on the US presidential election from
+1976-2016 via the Harvard Dataverse, referenced in the bibliography.
+
+``` r
 library(pacman)
 p_load(here,RSQLite,dbplyr,DBI,tidyverse,ggplot2,scales)
 ```
 
 Now to read in the data:
 
-```{r data}
+``` r
 data <- read.csv(here(
   "election/data/1976-2016-president.csv"
   ))
 ```
 
-Now, we will use sql to query the database. But first, we have to create a connection to our local data.
+Now, we will use sql to query the database. But first, we have to create
+a connection to our local data.
 
-```{r con}
+``` r
 con <- dbConnect(
   RSQLite::SQLite(), 
   path = ":memory:"
@@ -39,16 +36,20 @@ copy_to(
   )
 ```
 
-Now that we have a connection, let's query the database. Lets start by narrowing down to democrats and republicans. Then, lets aggregate by year to get the total votes cast for each party in a presidential election. We will also create a column with a binary result denoting who won the popular vote.
+Now that we have a connection, let’s query the database. Lets start by
+narrowing down to democrats and republicans. Then, lets aggregate by
+year to get the total votes cast for each party in a presidential
+election. We will also create a column with a binary result denoting who
+won the popular vote.
 
-```{sql connection = con, output.var = "dvr_year_s"}
+``` sql
 SELECT year,party, sum(candidatevotes)
 FROM data
 WHERE party="democrat" OR party="republican"
 GROUP BY year,party
 ```
 
-```{r dvr_year}
+``` r
 dbDisconnect(conn = con)
 dvr_year <- dvr_year_s %>%
   mutate(
@@ -61,10 +62,27 @@ dvr_year <- dvr_year_s %>%
 dvr_year
 ```
 
+    ## # A tibble: 22 x 4
+    ## # Groups:   year [11]
+    ##     year party         votes popular
+    ##    <int> <fct>         <int>   <dbl>
+    ##  1  1976 democrat   40680446       1
+    ##  2  1976 republican 38870893       0
+    ##  3  1980 democrat   35480948       0
+    ##  4  1980 republican 43642639       1
+    ##  5  1984 democrat   37449813       0
+    ##  6  1984 republican 54166829       1
+    ##  7  1988 democrat   41716679       0
+    ##  8  1988 republican 48642640       1
+    ##  9  1992 democrat   44856747       1
+    ## 10  1992 republican 38798913       0
+    ## # ... with 12 more rows
 
-Now, lets use a barchart to show the proportions of voting throughout the years. Please note that these are counts of the popular votes, not the electoral college.
+Now, lets use a barchart to show the proportions of voting throughout
+the years. Please note that these are counts of the popular votes, not
+the electoral college.
 
-```{r plot1}
+``` r
 ggplot(data = dvr_year) +
   geom_bar(mapping = 
              aes(
@@ -92,9 +110,13 @@ ggplot(data = dvr_year) +
   xlab("Year") + ylab("Votes") 
 ```
 
+    ## Warning: Ignoring unknown aesthetics: width
+
+![](election_files/figure-gfm/plot1-1.png)<!-- -->
 
 ## Bibliography
-```{bibliography}
+
+``` bibliography
 Data
 - author    : MIT Election Data and Science Lab,
 - publisher : Harvard Dataverse,
@@ -105,4 +127,3 @@ Data
 - doi       : 10.7910/DVN/42MVDX,
 - url       : https://doi.org/10.7910/DVN/42MVDX
 ```
-
