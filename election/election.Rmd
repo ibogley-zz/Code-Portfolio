@@ -15,18 +15,80 @@ Today, we will query information on the US presidential election  from 1976-2016
 
 ```{r pack}
 library(pacman)
-p_load(here)
+p_load(here,RSQLite,dbplyr,DBI,tidyverse,ggplot2,scales)
 ```
 
 Now to read in the data:
 
 ```{r data}
-data <- read.csv(here("data/1976-2016-president.csv"))
+data <- read.csv(here(
+  "data/1976-2016-president.csv"
+  ))
 ```
 
-Now, we will use sql to query the database
+Now, we will use sql to query the database. But first, we have to create a connection to our local data.
 
-```{sql connection=}
+```{r con}
+con <- dbConnect(
+  RSQLite::SQLite(), 
+  path = ":memory:"
+  )
 
+copy_to(
+  dest = con, 
+  df = data
+  )
+```
+
+Now that we have a connection, let's query the database. Lets start by narrowing down to democrats and republicans. Then, lets aggregate by year to get the total votes cast for each party in a presidential election. We will also create a column with a binary result denoting who won the popular vote.
+
+```{sql connection = con, output.var = "dvr_year_s"}
+SELECT year,party, sum(candidatevotes)
+FROM data
+WHERE party="democrat" OR party="republican"
+GROUP BY year,party
+```
+
+```{r dvr_year}
+dvr_year <- dvr_year_s %>%
+  mutate(
+    party  = factor(party),
+    votes  = `sum(candidatevotes)`,
+    'sum(candidatevotes)' = NULL,
+    ) %>%
+  group_by(year) %>%
+  mutate(popular = ifelse(votes==max(votes),1,0))
+dvr_year
+```
+
+
+Now, lets use a barchart to show the proportions of voting throughout the years. Please note that these are counts of the popular votes, not the electoral college.
+
+```{r plot1}
+ggplot(data = dvr_year) +
+  geom_bar(mapping = 
+             aes(
+               fill  = party, 
+               x     = year,
+               y     = votes,
+               width = 1.5
+               ),
+           position   =  "dodge",
+           stat       =  "identity",
+           ) +
+  scale_fill_manual(
+    values = c("#0000FF","#FF0000")
+    ) +
+  scale_x_continuous(
+    breaks = years
+  ) +
+  scale_y_continuous(
+    labels = unit_format(unit = "M",scale = 1e-6)
+    ) +
+  labs(
+    title    = "Popular Vote Results",
+    subtitle = "US Presidential Election"
+    ) +
+  xlab("Year") + ylab("Votes") 
 ```
 
