@@ -34,11 +34,10 @@ copy_to(
   )
 ```
 
-Now that we have a connection, let’s query the database. Lets start by
-narrowing down to democrats and republicans. Then, lets aggregate by
-year to get the total votes cast for each party in a presidential
-election. We will also create a column with a binary result denoting who
-won the popular vote.
+Let’s query the database, starting by narrowing down to democrats and
+republicans. Then, lets aggregate by year to get the total votes cast
+for each party in a presidential election. We will also create a column
+with a binary result denoting who won the popular vote.
 
 ``` sql
 SELECT year,party, sum(candidatevotes)
@@ -77,8 +76,8 @@ dvr_year
     ## # ... with 12 more rows
 
 Now, lets use a barchart to show the proportions of voting throughout
-the years. Please note that these are counts of the popular votes, not
-the electoral college.
+the years. Please note that these are counts of the raw vote levels for
+the public, not the electoral college delegates.
 
 ``` r
 ggplot(data = dvr_year) +
