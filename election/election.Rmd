@@ -19,9 +19,9 @@ p_load(here,RSQLite,dbplyr,DBI,tidyverse,ggplot2,scales,gganimate,knitr,gifski,p
 Now to read in the data:
 
 ```{r data}
-data <- read.csv(here(
-  "election/data/1976-2016-president.csv"
-  ))
+data <- read.csv(
+  here("election/data/1976-2016-president.csv")
+  )
 ```
 
 Now, we will use sql to query the database. But first, we have to create a connection to our local data.
@@ -91,7 +91,11 @@ ggplot(data = dvr_year) +
     title    = "Popular Vote Results",
     subtitle = "US Presidential Election"
     ) +
-  xlab("Year") + ylab("Votes") 
+  xlab("Year") + ylab("Votes") +
+  theme(
+    plot.title = element_text(hjust = .5),
+    plot.subtitle = element_text(hjust = .5)
+  )
 ```
 
 For our next trick, we will create an animation showing how the ratio of republican democrat has shifted over time.
@@ -108,7 +112,11 @@ ggplot(dvr_year) +
   labs(
     title = "Ratio of Democrat and Republican Voters",
     subtitle = "Presidential Election: {closest_state}"
-    )
+    ) +
+  theme(
+    plot.title = element_text(hjust = .5),
+    plot.subtitle = element_text(hjust = .5)
+  )
 ```
 
 

@@ -14,9 +14,9 @@ p_load(here,RSQLite,dbplyr,DBI,tidyverse,ggplot2,scales,gganimate,knitr,gifski,p
 Now to read in the data:
 
 ``` r
-data <- read.csv(here(
-  "election/data/1976-2016-president.csv"
-  ))
+data <- read.csv(
+  here("election/data/1976-2016-president.csv")
+  )
 ```
 
 Now, we will use sql to query the database. But first, we have to create
@@ -108,7 +108,11 @@ ggplot(data = dvr_year) +
     title    = "Popular Vote Results",
     subtitle = "US Presidential Election"
     ) +
-  xlab("Year") + ylab("Votes") 
+  xlab("Year") + ylab("Votes") +
+  theme(
+    plot.title = element_text(hjust = .5),
+    plot.subtitle = element_text(hjust = .5)
+  )
 ```
 
     ## Warning: Ignoring unknown aesthetics: width
@@ -129,7 +133,11 @@ ggplot(dvr_year) +
   labs(
     title = "Ratio of Democrat and Republican Voters",
     subtitle = "Presidential Election: {closest_state}"
-    )
+    ) +
+  theme(
+    plot.title = element_text(hjust = .5),
+    plot.subtitle = element_text(hjust = .5)
+  )
 ```
 
 ![](election_files/figure-gfm/anim-1.gif)<!-- -->
