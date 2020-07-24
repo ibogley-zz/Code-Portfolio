@@ -41,7 +41,7 @@ Let’s begin by reading in the voter data now.
 
 ``` r
 vote_county_00_16 <- 
-  here("countypres_2000-2016.csv") %>% 
+  here("election/countypres_2000-2016.csv") %>% 
   read_csv() %>%
   mutate(
     NAME = gsub(" County","",county),
@@ -97,7 +97,7 @@ the capitalization nor the spacing of the strings matter. This will be
 addressed later on.
 
 ``` r
-us2000_sf_dir  <- here("2000")
+us2000_sf_dir  <- here("election/2000")
 county_2000_shapefile <- read_sf(
   dsn = us2000_sf_dir
 ) %>% 
@@ -110,7 +110,7 @@ county_2000_shapefile$NAME <- gsub(" County", "",county_2000_shapefile$NAME)
 county_2000_shapefile$NAME[county_2000_shapefile$NAME=="Ste. Genevieve"] <- "Sainte Genevieve"
 st_crs(county_2000_shapefile) <- "NAD83"
 
-us2004_sf_dir <- here("2004")
+us2004_sf_dir <- here("election/2004")
 county_2004_shapefile <- read_sf(
   dsn = us2004_sf_dir
 ) %>% 
@@ -124,10 +124,13 @@ county_2004_shapefile <- read_sf(
   mutate(
     NAME = gsub("^St. ","Saint ",NAME)
   ) %>%
+  mutate(
+    NAME = gsub(" City","", NAME)
+  ) %>%
   select(STATE,NAME,geometry)
 
 
-us2008_sf_dir <- here("2008")
+us2008_sf_dir <- here("election/2008")
 county_2008_shapefile <- read_sf(
   dsn = us2008_sf_dir
 ) %>% 
@@ -138,10 +141,13 @@ county_2008_shapefile <- read_sf(
   mutate(
     NAME = gsub(" Parish","",NAME)
   ) %>%
+  mutate(
+    NAME = gsub(" City","", NAME)
+  ) %>%
   select(STATE,NAME,geometry)
 county_2008_shapefile$NAME[county_2008_shapefile$NAME == "DeBaca"] <- "De Baca"
 
-us2012_sf_dir <- here("2012")
+us2012_sf_dir <- here("election/2012")
 county_2012_shapefile <- read_sf(
   dsn = us2012_sf_dir
 ) %>% 
@@ -167,7 +173,7 @@ county_2012_shapefile$NAME[county_2012_shapefile$NAME == "Lewis & Clark"] <- "Le
 county_2012_shapefile$NAME[county_2012_shapefile$NAME == "King & Queen"] <- "King and Queen"
 county_2012_shapefile$NAME[county_2012_shapefile$NAME == "Ste. Genevieve"] <- "Sainte Genevieve"
 
-us2016_sf_dir <- here("2016")
+us2016_sf_dir <- here("election/2016")
 county_2016_shapefile <- read_sf(
   dsn = us2016_sf_dir
 ) %>% 
