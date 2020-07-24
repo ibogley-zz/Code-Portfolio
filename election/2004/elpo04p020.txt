@@ -1,0 +1,1800 @@
+Identification_Information:
+  Citation:
+    Citation_Information:
+      Originator: National Atlas of the United States
+      Publication_Date: 200904
+      Title: 2004 Presidential General Election, County Results
+      Geospatial_Data_Presentation_Form: Map
+      Publication_Information:
+        Publication_Place: Reston, VA
+        Publisher: National Atlas of the United States 
+      Online_Linkage: <http://nationalatlas.gov/atlasftp.html?openChapters=chphist#chphist>
+  Description:
+    Abstract:
+      This data set portrays election results, by counties for 49 States and 
+      by election districts for Alaska, for the 2004 Presidential general 
+      election.  Reported for each county are the popular vote count for the 
+      Democratic Party candidate, the Republican Party candidate, and all other 
+      votes.  Also reported are the percentage of the vote cast for each party’s 
+      candidate, based on the total number of valid votes cast.  Over votes 
+      (ballots which contained votes for more than one candidate) and under 
+      votes (ballots which contained votes for no candidate) are not included in 
+      the total number of votes reported.  For details particular to each State, 
+      see the Process Steps.
+    Purpose:
+      These data are intended for geographic display and analysis at the 
+      national level, and for large regional areas.  The data should be 
+      displayed and analyzed at scales appropriate for 1:2,000,000-scale data.  
+      The National Atlas of the United States assumes no responsibility for the 
+      use of these data.
+
+  Time_Period_of_Content:
+    Time_Period_Information:
+      Single_Date/Time:
+        Calendar_Date: 200902
+    Currentness_Reference: Publication date 
+  Status:
+    Progress: Complete
+    Maintenance_and_Update_Frequency: None planned
+  Spatial_Domain:
+    Bounding_Coordinates:
+      West_Bounding_Coordinate: 172
+      East_Bounding_Coordinate: -64
+      North_Bounding_Coordinate: 72
+      South_Bounding_Coordinate: 18
+  Keywords:
+    Theme:
+      Theme_Keyword_Thesaurus: ISO 19115 Topic Category
+      Theme_Keyword: society
+    Theme:
+      Theme_Keyword_Thesaurus: None
+      Theme_Keyword: 2004 Presidential Election
+      Theme_Keyword: Presidential elections
+      Theme_Keyword: Elections
+      Theme_keyword: General elections
+      Theme_Keyword: Popular votes
+      Theme_Keyword: Political parties
+      Theme_Keyword: Democratic
+      Theme_Keyword: Republican
+      Theme_Keyword: Votes
+      Theme_Keyword: Election Districts
+      Theme_Keyword: Counties
+
+    Place:
+      Place_Keyword_Thesaurus: None
+      Place_Keyword: United States
+      Place_Keyword: Alabama
+      Place_Keyword: Alaska
+      Place_Keyword: Arizona
+      Place_Keyword: Arkansas
+      Place_Keyword: California
+      Place_Keyword: Colorado
+      Place_Keyword: Connecticut
+      Place_Keyword: Delaware
+      Place_Keyword: District of Columbia
+      Place_Keyword: Florida
+      Place_Keyword: Georgia
+      Place_Keyword: Hawaii
+      Place_Keyword: Idaho
+      Place_Keyword: Illinois
+      Place_Keyword: Indiana
+      Place_Keyword: Iowa
+      Place_Keyword: Kansas
+      Place_Keyword: Kentucky
+      Place_Keyword: Louisiana
+      Place_Keyword: Maine
+      Place_Keyword: Maryland
+      Place_Keyword: Massachusetts
+      Place_Keyword: Michigan
+      Place_Keyword: Minnesota
+      Place_Keyword: Mississippi
+      Place_Keyword: Missouri
+      Place_Keyword: Montana
+      Place_Keyword: Nebraska
+      Place_Keyword: Nevada
+      Place_Keyword: New Hampshire
+      Place_Keyword: New Jersey
+      Place_Keyword: New Mexico
+      Place_Keyword: New York
+      Place_Keyword: North Carolina
+      Place_Keyword: North Dakota
+      Place_Keyword: Ohio
+      Place_Keyword: Oklahoma
+      Place_Keyword: Oregon
+      Place_Keyword: Pennsylvania
+      Place_Keyword: Rhode Island
+      Place_Keyword: South Carolina
+      Place_Keyword: South Dakota
+      Place_Keyword: Tennessee
+      Place_Keyword: Texas
+      Place_Keyword: Utah
+      Place_Keyword: Vermont
+      Place_Keyword: Virginia
+      Place_Keyword: Washington
+      Place_Keyword: West Virginia
+      Place_Keyword: Wisconsin
+      Place_Keyword: Wyoming
+      Place_Keyword: USA
+
+  Access_Constraints: None
+  Use_Constraints:
+    None.  Acknowledgment of the National Atlas of the United States of
+    America would be appreciated in products derived from these data.
+
+  Point_of_Contact:
+    Contact_Information:
+      Contact_Person_Primary:
+        Contact_Person: Terry Higgins
+        Contact_Organization: National Atlas of the United States
+      Contact_Address:
+        Address_Type: Mailing address
+        Address: 1400 Independence Road
+        Address: MS 700
+        City: Rolla
+        State_or_Province: MO
+        Postal_Code: 65401
+      Contact_Voice_Telephone: 573 308-3592
+      Contact_Electronic_Mail_Address: atlasmail@usgs.gov
+
+Data_Quality_Information:
+  Logical_Consistency_Report: 
+    The data set was checked for topological consistency using the ArcInfo 
+    command BUILD.  No other checks for logical consistency were performed on 
+    this data set.
+  Completeness_Report:
+    This data set includes election information for all 50 States and the 
+    District of Columbia.  Data completeness generally reflects the source 
+    files. 
+
+  Lineage:
+    Source_Information: 
+      Source_Citation: 
+        Citation_Information: 
+          Originator: National Atlas of the United States
+          Publication_Date: 200506
+          Title: County Boundaries of the United States, 2001
+          Publication_Information: 
+            Publication_Place: Reston, VA 
+            Publisher: National Atlas of the United States
+          Online_Linkage: <http://nationalatlas.gov/atlasftp.html?openChapters 
+      Source_Scale_Denominator: 2000000 
+      Type_of_Source_Media: online 
+      Source_Time_Period_of_Content: 
+        Time_Period_Information:
+          Range_of_Dates/Times:
+            Beginning_Date: 1972
+            Ending_Date: 2001
+        Source_Currentness_Reference: Ground Condition 
+      Source_Citation_Abbreviation: COUNTYP020 
+      Source_Contribution: Spatial and attribute information 
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Alabama Secretary of State
+          Publication_Date: Unknown
+          Title: 2004 General Election Results – County Level
+          Online_Linkage: <http://www.sos.state.al.us/downloads/dl2.cfm?div1=Elections%20Division&types=Data>
+      Type_of_Source_Media: Online
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: AL_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: State of Alaska Division of Elections
+          Publication_Date: Unknown
+          Title: State of Alaska 2004 General Election House District Official Results
+          Online_Linkage: <http://www.elections.alaska.gov/04genr/index.shtml>
+      Type_of_Source_Media: Online
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: AK_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Arizona Secretary of State
+          Publication_Date: Unknown
+          Title: State of Arizona Official Canvass - 2004 General Election
+          Online_Linkage: <http://azsos.gov/election/2004/general/ElectionInformation.htm>
+      Type_of_Source_Media: Online
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: AZ_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Arkansas Secretary of State
+          Publication_Date: Unknown
+          Title: 
+            Certification Report, 2004 General Election and Non-Partisan Judicial Runoff,
+            2004-11-02, County Summary 
+          Online_Linkage: <http://www.arelections.org/results/66/elec66_bycounty-all.html>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: AR_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: California Secretary of State
+          Publication_Date: Unknown
+          Title: 
+            Statement of Vote and Supplement to the Statement of Vote
+            2004 Presidential General Election
+          Online_Linkage: <http://www.ss.ca.gov/elections/sov/2004_general/contents.htm>
+      Type_of_Source_Media: Online
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: CA_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Colorado Secretary of State
+          Publication_Date: 2004
+          Title: 
+            Official Publication of the Abstract of Votes Cast for the
+            2003 Coordinated, 2004 Primary, 2004 General
+          Online_Linkage: <http://www.elections.colorado.gov/WWW/default/Prior%20Years%20Election%20Information/2004/Abstract%202003%202004%20082305%20Late%20PM-5.pdf>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: CO_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Connecticut Secretary of the State
+          Publication_Date: 2004
+          Title: 2004 Statement of Vote
+          Online_Linkage: <http://209.101.151.73/statementofvote/Reports/PE_by2.html>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: CT_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: State of Delaware Commissioner of Elections
+          Publication_Date: 2004
+          Title: 
+            Official Election Results, General Elections - 11/02/04, Statewide 
+            Offices By County
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: DE_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: District of Columbia, Board of Elections and Ethics
+          Publication_Date: 2004
+          Title: 
+            Certified Summary Results, DC Presidential General 2004
+          Online_Linkage: <http://www.dcboee.org/information/elec_2004/pres_general_2004_results.shtm>
+      Type_of_Source_Media: Online
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: DC_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Florida Division of Elections
+          Publication_Date: 2004
+          Title: 
+            November 2, 2004 General Election, Official Results
+          Online_Linkage: <http://election.dos.state.fl.us/elections/resultsarchive/
+            downloadresults.asp?ElectionDate=11/2/2004&DATAMODE>
+      Type_of_Source_Media: Online
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: FL_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Georgia Secretary of State
+          Publication_Date: 2004
+          Title: 
+            Georgia Election Results, Official Results of the November 2, 2004 General 
+            Election
+          Online_Linkage: <http://www.sos.state.ga.us/elections/election_results/2004_1102/001.htm>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: GA_results1
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Georgia Secretary of State
+          Publication_Date: 2004
+          Title: 
+            General Election, Write-In candidates, November 2, 2004 
+          Online_Linkage: <http://www.sos.state.ga.us/elections/election_results/write-in_2004.htm>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: GA_results2
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: State of Hawaii, Office of Elections
+          Publication_Date: 2004
+          Title: 
+            General Election 2004 Certified County Summaries
+          Online_Linkage: <http://www.hawaii.gov/elections/results/2004/general/>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: HI_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Idaho Secretary of State
+          Publication_Date: 2004
+          Title: 
+            November 2, 2004 General Election Results U.S. President - by county
+          Online_Linkage: <http://www.idsos.state.id.us/ELECT/RESULTS/2004/general/cnty_pres.htm>
+      Type_of_Source_Media: Online
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: ID_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Illinois State Board of Elections
+          Publication_Date: 2004
+          Title: 
+            Candidate Totals by County, 2004 General Election 
+          Online_Linkage: <http://www.elections.state.il.us/ElectionInformation/DownloadVoteTotals.aspx>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: IL_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Indiana Secretary of State
+          Publication_Date: 2004
+          Title: 
+            Indiana General Election November 2, 2004, Statewide, President and Vice-
+            President
+          Online_Linkage: <http://www.in.gov/apps/sos/election/general/general2004?page=district&
+            countyID=1&officeID=36&districtID=937&candidate>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: IN_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Iowa Secretary of State
+          Publication_Date: 2004
+          Title: 
+            State of Iowa Canvass Summary, 2004 General Election
+          Online_Linkage: <http://www.sos.state.ia.us/pdfs/elections/2004/general/CanvassSummary.pdf>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: IA_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Kansas Secretary of State
+          Publication_Date: 2004
+          Title: 
+            2004 November 2 General Election Official results by County
+          Online_Linkage: <http://www.kssos.org/elections/elections_statistics.html>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: KS_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Kentucky State Board of Elections
+          Publication_Date: 2004
+          Title: 
+            Kentucky State Board of Elections Report of "Official" Election Night Tally Results
+          Online_Linkage: <http://elect.ky.gov/NR/rdonlyres/BB0D042A-9631-4B90-8C67-634C69E5BA75/7471/res_COUNTY.txt>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: KY_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Massachusetts Secretary of the Commonwealth, Elections Division
+          Publication_Date: 2004
+          Title: 
+            Electors of President and Vice President
+      Type_of_Source_Media: Paper
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: MA_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Minnesota Secretary of State
+          Publication_Date: 2004
+          Title: 
+            Minnesota Presidential Results by County
+      Type_of_Source_Media: Electronic mail
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: MN_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Maine Secretary of State 
+          Publication_Date: 2004
+          Title: 
+             General Election Tabulations, President of the United States
+          Online_Linkage: <http://www.maine.gov/sos/cec/elec/2004n/pr.htm>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: ME_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Columbia University Press
+          Publication_Date: 2000
+          Title: Columbia Gazetteer of North America; Townships in Maine, United States
+          Online_Linkage: <http://reference.allrefer.com/gazetteer/us-categories/maine-township.html>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 2000
+        Source_Currentness_Reference: Publication date
+      Source_Citation_Abbreviation: ME_1
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: JobsInTheUS.com
+          Publication_Date: 2006
+          Title: Cities and Towns of Maine
+          Online_Linkage: <http://www.jobsinme.com/misc/page.aspx?pagenum=279>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 2006
+        Source_Currentness_Reference: Publication date
+      Source_Citation_Abbreviation: ME_2
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Ray Angelo, Harvard University Herbaria 
+          Publication_Date: 2006
+          Title: County Location of New England Place Names
+          Online_Linkage: <http://neatlas.huh.harvard.edu/NECounty/ME.html>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 2006
+        Source_Currentness_Reference: Publication date
+      Source_Citation_Abbreviation: ME_3
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Maine Office of the Revisor of Statutes 
+          Publication_Date: 2006
+          Title: State Senate Districts
+          Online_Linkage: <http://janus.state.me.us/legis/statutes/21-a/title21-Asec1203-A.html>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 2006
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: ME_4
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Maryland State Board of Elections 
+          Publication_Date: 2004
+          Title: 2004 Presidential General Official Result
+          Online_Linkage: <http://elections.state.md.us/elections/2004/general/president.html>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: MD_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Michigan Secretary of State
+          Publication_Date: 2004
+          Title: 
+            Election Results, General Election, November 02, 2004
+          Online_Linkage: <http://miboecfr.nicusa.com/election/results/04GEN/01000000.html>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: MI_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Mississippi Secretary of State
+          Publication_Date: 2004
+          Title: Total Votes Reported by County for 2004 General Election
+          Online_Linkage: <http://www.mississippi.gov/frameset.jsp?URL=http%3A%2F%2Fwww.sos.state.ms.us%2F>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: MS_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Missouri Secretary of State
+          Publication_Date: 2004
+          Title: November 2, 2004 General Election County Reporting
+          Online_Linkage: <http://www.sos.mo.gov/enrweb/countyselect.asp?eid=131&arc=>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: MO_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Montana Secretary of State
+          Publication_Date: 2004
+          Title: 2004 STATEWIDE GENERAL ELECTION RESULTS ~ NOVEMBER 2nd, 2004
+          Online_Linkage: <http://sos.mt.gov/ELB/archives/2004/2004-GenState.pdf>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: MT_result
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Nebraska Secretary of State
+          Publication_Date: 2004
+          Title: 
+            Official Results-2004 General Election, President of the United States
+          Online_Linkage: <http://www.sos.state.ne.us/elec/canvass/general2004/Pres.htm>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: NE_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Nevada Secretary of State
+          Publication_Date: 2004
+          Title: 2004 General Election Coverage and Reports
+          Online_Linkage: <http://sos.state.nv.us/nvelection/2004General/>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: NV_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Office of the Attorney General, Division of Elections
+          Publication_Date: 2004
+          Title: Official List, Candidates for President
+          Online_Linkage: <http://www.state.nj.us/lps/elections/2004results/04generalelection/
+            official_04_gen_pres_results.pdf>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: NJ_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: New Mexico Secretary of State
+          Publication_Date: 2004
+          Title: 
+            Canvass of Returns of General Election Held on November 2, 2004 – State 
+            of New Mexico
+          Online_Linkage: <http://www.sos.state.nm.us/Main/Elections/2004/04%20CntyIndx.htm>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: NM_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: New York State Board of Elections
+          Publication_Date: 2004
+          Title: 
+            NYS Board of Elections President and Vice-President Election Returns 
+            Nov. 2, 2004
+          Online_Linkage: <http://www.elections.state.ny.us/NYSBOE/elections/2004/president04.pdf>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: NY_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: State of New Hampshire Elections Division
+          Publication_Date: 2004
+          Title: STATE GENERAL ELECTION - November 2, 2004
+          Online_Linkage: <http://www.sos.nh.gov/general%202004/sumpres04.htm>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: NH_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: North Carolina Board of Elections
+          Publication_Date: 2004
+          Title: 11/02/2004 OFFICIAL GENERAL ELECTION RESULTS
+          Online_Linkage: <http://www.sboe.state.nc.us/enrs/main_primary.asp?ED=11xx02xx2004&EL
+            =GENERAL&YR=2004&CR=A>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: NC_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: North Dakota Secretary of State
+          Publication_Date: 2004
+          Title: Official Election Results - All Counties, President of the United States
+          Online_Linkage: <http://web.apps.state.nd.us/sec/emspublic/gp/electionresultssearch.htm
+            ?cmd=Search&searchType=COUNTY&electionDate=11022004&showMap=
+            N&countyNo=All+Counties>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: ND_results
+      Source_Contribution: Attribute information.
+ 
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Ohio Secretary of State
+          Publication_Date: 2004
+          Title: 
+            Election Results; President, Full Term Commencing January 20, 2005; 
+            Official Tabulation: November 2, 2004
+          Online_Linkage: <http://www.sos.state.oh.us/sos/ElectionsVoter/results2004.aspx?Section=135>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: OH_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Oklahoma State Election Board
+          Publication_Date: 2004
+          Title: 
+            PRESIDENT AND VICE PRESIDENT OF THE UNITED STATES 
+            General Election — November 2, 2004
+          Online_Linkage: <http://www.elections.state.ok.us/04pres.pdf>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: OK_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Oregon Secretary of State
+          Publication_Date: 2004
+          Title: 
+            Official Results - November 2, 2004, General Election
+          Online_Linkage: <http://www.sos.state.or.us/elections/nov22004/g04abstract.html> 
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: OR_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Pennsylvania Department of State
+          Publication_Date: 2004
+          Title: 
+            2004 General Election; Tuesday, November 02, 2004; Official Returns
+          Online_Linkage: <http://www.electionreturns.state.pa.us/ElectionsInformation.aspx
+            ?FunctionID=15&ElectionID=11&OfficeID=1>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: PA_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Rhode Island Board of Elections 
+          Publication_Date: 2004
+          Title: PRESIDENTIAL ELECTION RESULTS by COMMUNITY
+          Online_Linkage: <http://www.elections.ri.gov/2004GE/results_main/pres_CT.htm>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: RI_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: State of Rhode Island
+          Publication_Date: 2004
+          Title: Rhode Island 2003-2004 Highway Map
+          Online_Linkage: <http://www.visitrhodeisland.com/images/img_state_map_lg.jpg>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: RI_map
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: South Carolina State Election Commission
+          Publication_Date: 2004
+          Title: 
+            November 2, 2004, South Carolina State Wide General Election Official 
+            Results, President and Vice President
+          Online_Linkage: <http://www.state.sc.us/scsec/returns.html>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: SC_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: South Dakota Secretary of State
+          Publication_Date: 2004
+          Title: General Election Official Returns for Presidential Electors
+          Online_Linkage: <http://sdsos.gov/electionsvoteregistration/pastelections_electioninfo04_GEreturnsforpresidentialelectors.shtm>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: SD_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Tennessee Secretary of State
+          Publication_Date: 2004
+          Title: November 2, 2004, General Election Official Results
+          Online_Linkage: <http://tennessee.gov/sos/election/results/2004-11/prescounty.pdf>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: TN_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Texas Secretary of State
+          Publication_Date: 2004
+          Title: 
+            2004 General Election, 11/2/2004, President/Vice-President
+          Online_Linkage: <http://elections.sos.state.tx.us/elchist.exe>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: TX_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Utah Lieutenant Governor’s Office
+          Publication_Date: 2004
+          Title: 2004 General Election Results, U.S. President
+          Online_Linkage: <http://elections.utah.gov/2004_canvass_president.pdf>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: UT_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Vermont Secretary of State
+          Publication_Date: 2004
+          Title: Detailed 2004 General Election Results for U.S. President
+          Online_Linkage: <http://vermont-elections.org/elections1/2004_election_info.html>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: VT_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Virginia State Board of Elections
+          Publication_Date: 2004
+          Title: 
+            Commonwealth of Virginia, November 2nd - General Election, Official 
+            Results
+          Online_Linkage: <http://www2.sbe.virginia.gov/web_docs/Election/Results/2004/Nov2004/l_01.htm>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: VA_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Washington Secretary of State
+          Publication_Date: 2004
+          Title: 
+            2004 General Election > Federal Offices > President/Vice President > 
+            Results by County
+          Online_Linkage: <http://vote.wa.gov/Elections/Results/ResultsByCounty.aspx?e=a3501711-c318-45f4-8a03-1d926ac839b7&j=a077943e-44ef-4b4e-b051-34b41c48179b&o=7b5d7925-
+            77f3-4363-9c1c-0bc6d285a739>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: WA_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: West Virginia Secretary of State
+          Publication_Date: 2004
+          Title: U.S. President
+          Online_Linkage: <http://www.wvsos.com/elections/history/results/electionresults.htm>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: WV_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Wisconsin State Elections Board
+          Publication_Date: 2004
+          Title: 
+            Wisconsin State Elections Board, Canvass Summary, Fall General Election – 
+            11/02/2004
+          Online_Linkage: <http://elections.state.wi.us/subcategory.asp?linksubcatid=391&linkcatid=491&linkid=155&locid=47>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: WI_results
+      Source_Contribution: Attribute information.
+
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Wyoming Secretary of State
+          Publication_Date: 2004
+          Title: 
+            Statewide Candidates' Abstract -- Official Wyoming General Election 
+            Results -- November 2, 2004
+          Online_Linkage: <http://soswy.state.wy.us/election/2004/results/GS-State.pdf>
+      Type_of_Source_Media: Online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20041102
+        Source_Currentness_Reference: Election date
+      Source_Citation_Abbreviation: WY_results
+      Source_Contribution: Attribute information.
+
+    Source_Information: 
+      Source_Citation: 
+        Citation_Information: 
+          Originator: U.S. Department of Commerce, U.S. Census Bureau, Geography Division
+          Publication_Date: 2007
+          Title: 
+            TIGER/Line Shapefile, 2007, state, Alaska, State Legislative District (SLD) Lower Chamber
+          Publication_Information: 
+            Publication_Place: Washington, D.C. 
+            Publisher: U.S. Census Bureau
+          Online_Linkage: <http://www.census.gov/cgi-bin/geo/shapefiles/state-files?state=02>
+      Type_of_Source_Media: online 
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 2007
+        Source_Currentness_Reference: Ground Condition 
+      Source_Citation_Abbreviation: AKSLD_LC
+      Source_Contribution: Spatial information. 
+
+    Process_Step: 
+      Process_Description: 
+        The county boundaries file was modified to include attributes for the 
+        Democratic vote, Republican vote, and Other votes.  Attributes were also 
+        added for the percentage of the vote received by each party, and for 
+        symbology.  The square miles attribute was deleted, and the file was 
+        renamed.
+
+        Official results for Alabama were download and processed in Excel to total the 
+        Other votes.  Over and under votes were not included.  The vote fields were 
+        populated.
+
+        Official results for Arizona were printed from the Web site, the Other category 
+        was totaled manually, and the vote fields were populated.
+
+        Official results for Arkansas were viewed online, the Other category was totaled 
+        manually, and the vote fields were populated.
+      Source_Used_Citation_Abbreviation: COUNTYP020 
+      Source_Used_Citation_Abbreviation: AL_results
+      Source_Used_Citation_Abbreviation: AZ_results
+      Source_Used_Citation_Abbreviation: AR_results
+      Process_Date: 200607 
+
+    Process_Step: 
+      Process_Description: 
+        Official results for California were download as an Excel file and processed in 
+        Excel to total the Other votes.  The vote fields were populated.
+
+        Official results for Colorado were printed from the .pdf file, the Other category 
+        was totaled manually, and the vote fields were populated.
+
+        Official results for Connecticut were printed from the Web page, the Other 
+        category was totaled manually, and the vote fields were populated.
+
+        Official results for Delaware were viewed online, the Other category was totaled 
+        manually, and the vote fields were populated.
+
+        Official results for the District of Columbia were viewed online, the Other 
+        category was totaled manually, and the vote fields were populated.
+
+        Official results for Florida were downloaded, the Other category was 
+        totaled manually, and the vote fields were populated.
+
+        Official results for Georgia were printed from the Web pages, the Other category 
+        was totaled manually, and the vote fields were populated.
+
+        Official results for Hawaii were viewed online, the Other category was totaled 
+        Manually, and the vote fields were populated.  No separate data are available for 
+        Kalawao County, so the vote values were set to -9999.  Any votes in Kalawao 
+        County are included with the totals for Maui.
+
+        Official results for Idaho were viewed online, the Other category was totaled 
+        manually, and the vote fields were populated.
+
+        Official results for Illinois were downloaded as an Excel file and processed in 
+        Excel to total the Other votes.  The vote fields were populated.
+
+        Official results for Indiana were viewed online, the Other category was totaled 
+        manually, and the vote fields were populated.
+
+        Official results for Iowa were viewed online, the Other category was totaled 
+        manually, and the vote fields were populated.
+
+        Official results for Kansas were downloaded as an Excel file and processed in 
+        Excel to total the Other votes.  The vote fields were populated.
+
+        Official results for Massachusetts were provided in printed form by the office of 
+        the Secretary of the Commonwealth.  The Other category was totaled manually, and 
+        the vote fields were populated.
+
+        Official results for Minnesota were provided as an Excel file sent by electronic 
+        mail from the Secretary of State’s office.  The file was processed in Excel to 
+        total the Other votes, and the vote fields were populated.
+      Source_Used_Citation_Abbreviation: COUNTYP020 
+      Source_Used_Citation_Abbreviation: CA_results
+      Source_Used_Citation_Abbreviation: CO_results
+      Source_Used_Citation_Abbreviation: CT_results
+      Source_Used_Citation_Abbreviation: DE_results
+      Source_Used_Citation_Abbreviation: DC_results
+      Source_Used_Citation_Abbreviation: FL_results
+      Source_Used_Citation_Abbreviation: GA_results1
+      Source_Used_Citation_Abbreviation: GA_results2
+      Source_Used_Citation_Abbreviation: HI_results
+      Source_Used_Citation_Abbreviation: ID_results
+      Source_Used_Citation_Abbreviation: IL_results
+      Source_Used_Citation_Abbreviation: IN_results
+      Source_Used_Citation_Abbreviation: IA_results
+      Source_Used_Citation_Abbreviation: KS_results
+      Source_Used_Citation_Abbreviation: MA_results
+      Source_Used_Citation_Abbreviation: MN_results
+      Process_Date: 200608 
+
+    Process_Step: 
+      Process_Description: 
+        Official results for Kentucky were viewed online, the Other category was totaled 
+        manually, and the vote fields were populated.
+
+        Official results for Louisiana were viewed online, the Other category was totaled 
+        manually, and the vote fields were populated.
+
+        Official results for Maine were downloaded.  Results are reported by town, so 
+        towns and townships were allocated to the appropriate county.  Most county 
+        allocations were based on information in ME_4, with additional information 
+        obtained from ME_1, ME_2, and ME_3,.  Results were entered into an Excel 
+        spreadsheet which was then used to calculate county totals and the Other category 
+        totals.  The vote fields were populated.
+      Source_Used_Citation_Abbreviation: COUNTYP020 
+      Source_Used_Citation_Abbreviation: KY_results
+      Source_Used_Citation_Abbreviation: LA_results
+      Source_Used_Citation_Abbreviation: ME_results
+      Source_Used_Citation_Abbreviation: ME_1
+      Source_Used_Citation_Abbreviation: ME_2
+      Source_Used_Citation_Abbreviation: ME_3
+      Source_Used_Citation_Abbreviation: ME_4
+      Process_Date: 200609
+
+    Process_Step: 
+      Process_Description: 
+        Official results for Maryland were viewed online, the Other category was totaled 
+        manually, and the vote fields were populated.
+
+        Official results for Michigan were viewed online, the Other category was totaled 
+        manually, and the vote fields were populated.
+ 
+        Official results for Mississippi were printed from the .pdf file, the Other 
+        category was totaled manually, and the vote fields for some counties were 
+        populated.
+
+        Official results for Missouri were viewed online and the Other category was 
+        totaled manually.  Results reported for Kansas City were manually totaled with 
+        those for reported for Jackson County, to produce the Jackson County total.  The 
+        vote fields were populated.
+
+        Official results for Montana were viewed online, the Other category was totaled 
+        manually, and the vote fields were populated.
+
+        Official results for Nebraska were viewed online, the Other category was totaled 
+        manually, and the vote fields were populated.
+
+        Official results for Nevada were viewed online and the Other category was totaled 
+        manually.  Votes for ‘None of these Candidates’ were included in the Other 
+        category totals.  The vote fields were populated.
+
+        Official results for New Jersey were viewed online, the Other category was 
+        totaled manually, and the vote fields were populated.
+
+        Official results for New Mexico were viewed online, the Other category was 
+        totaled manually, and the vote fields were populated.
+
+        Official results for New York were download and processed in Excel to total the 
+        Other votes.  New York allows cross endorsements.  Kerry and Edwards were the 
+        candidates of both the Democratic Party and the Working Families Party; votes for 
+        both parties were totaled and are reported as the Democratic vote.  Bush and 
+        Cheney were the candidates of both the Republican Party and the Conservative 
+        Party; votes for both parties were totaled and are reported as the Republican 
+        vote.  The Scatter category includes void votes and was not included in the Other 
+        total. The vote fields were populated.
+
+        Official results for New Hampshire were viewed online and the Other category was 
+        totaled manually.  Scatter votes are valid votes and were included in the Other 
+        total.  The vote fields were populated.
+      Source_Used_Citation_Abbreviation: COUNTYP020 
+      Source_Used_Citation_Abbreviation: MD_results
+      Source_Used_Citation_Abbreviation: MI_results
+      Source_Used_Citation_Abbreviation: MS_results
+      Source_Used_Citation_Abbreviation: MO_results
+      Source_Used_Citation_Abbreviation: MT_results
+      Source_Used_Citation_Abbreviation: NE_results
+      Source_Used_Citation_Abbreviation: NV_results
+      Source_Used_Citation_Abbreviation: NJ_results
+      Source_Used_Citation_Abbreviation: NM_results
+      Source_Used_Citation_Abbreviation: NY_results
+      Source_Used_Citation_Abbreviation: NH_results
+      Process_Date: 200610
+
+    Process_Step: 
+      Process_Description: 
+        Official results for North Carolina were download and processed in Excel to total 
+        the Other votes.  The vote fields were populated.
+
+        Official results for North Dakota were viewed online, the Other category was 
+        totaled manually, and the vote fields were populated.
+
+        Official results for Ohio were viewed online, the Other category was totaled 
+        manually, and the vote fields were populated.
+
+        Official results for Oklahoma were viewed online and the vote fields were 
+        populated.  There were only two candidates on the ballot in Oklahoma so the Other 
+        category was set to zero for all counties.
+
+        Official results for Oregon were download and processed in Excel to total the 
+        Other votes.  The vote fields were populated.
+
+        Official results for Pennsylvania were viewed online, the Other category was 
+        totaled manually, and the vote fields were populated.
+
+        Official results for Rhode Island were downloaded and processed in Excel.  
+        Results are reported by community, so RI_map was used to assign communities to 
+        the appropriate county.  Excel was used to total the Other category, and the vote 
+        fields were populated.
+
+        Official results for South Carolina were download and processed in Excel to total 
+        the Other votes.  The vote fields were populated.
+
+        Official results for South Dakota were download and processed in Excel to total 
+        the Other votes.  The vote fields were populated.
+
+        Official results for Tennessee were download and processed in Excel to total the 
+        Other votes.  The vote fields were populated.
+
+        Official results for Texas were download and processed in Excel to total the 
+        Other votes.  The vote fields were populated.
+
+        Official results for Utah were download and processed in Excel to total the 
+        Other votes.  The vote fields were populated.
+      Source_Used_Citation_Abbreviation: COUNTYP020 
+      Source_Used_Citation_Abbreviation: NC_results
+      Source_Used_Citation_Abbreviation: ND_results
+      Source_Used_Citation_Abbreviation: OH_results
+      Source_Used_Citation_Abbreviation: OK_results
+      Source_Used_Citation_Abbreviation: OR_results
+      Source_Used_Citation_Abbreviation: PA_results
+      Source_Used_Citation_Abbreviation: RI_results
+      Source_Used_Citation_Abbreviation: RI_map
+      Source_Used_Citation_Abbreviation: SC_results
+      Source_Used_Citation_Abbreviation: SD_results
+      Source_Used_Citation_Abbreviation: TN_results
+      Source_Used_Citation_Abbreviation: TX_results
+      Source_Used_Citation_Abbreviation: UT_results
+      Process_Date: 200611
+
+    Process_Step: 
+      Process_Description: 
+        Official results for Vermont were download and processed in Excel to total 
+        the Other votes.  The vote fields were populated.
+
+        Official results for Virginia were viewed online, the Other category was 
+        totaled manually, and the vote fields were populated.
+
+        Official results for Washington were viewed online, the Other category was 
+        totaled manually, and the vote fields were populated.
+
+        Official results for West Virginia were download and processed in Excel to total 
+        the Other votes.  The vote fields were populated.
+
+        Official results for Wisconsin were viewed online and the Other category was 
+        totaled manually.  Scattering votes were included in the Other category.  The 
+        vote fields were populated.
+
+        Official results for Wyoming were download and processed in Excel to total 
+        the Other votes.  The vote fields were populated.
+
+        Remaining data from Mississippi were added.
+
+        Polygons for Puerto Rico and the Virgin Islands were deleted.
+      Source_Used_Citation_Abbreviation: COUNTYP020 
+      Source_Used_Citation_Abbreviation: VT_results
+      Source_Used_Citation_Abbreviation: VA_results
+      Source_Used_Citation_Abbreviation: WA_results
+      Source_Used_Citation_Abbreviation: WV_results
+      Source_Used_Citation_Abbreviation: WI_results
+      Source_Used_Citation_Abbreviation: WY_results
+      Source_Used_Citation_Abbreviation: MS_results
+      Process_Date: 200612
+
+    Process_Step: 
+      Process_Description: 
+        A field was added for total votes.  For all records with vote counts, 
+        the three vote values were summed to get the total number of votes.  The vote 
+        percentages were calculated for the Democratic, Republican, and all Other 
+        parties.  For Kalawao County, HI, the percentages were set to -9999.
+
+        The symbol code was set.  This code is used for the Map Maker display.  
+        For Kalawao County, Hawaii (there are no values for this county)will be 
+        symbolized with the lightest democratic color.
+
+      Process_Date: 200701
+
+    Process_Step: 
+      Process_Description: 
+         State legislative district boundaries were added to COUNTYP020 for the State of 
+         Alaska using AKSLD_LC National Atlas geometry was used where district 
+         boundaries were coincident with National Atlas base features.  
+      Source_Used_Citation_Abbreviation: COUNTYP020 
+      Source_Used_Citation_Abbreviation: AKSLD_LC
+      Process_Date: 200810
+
+    Process_Step: 
+      Process_Description: 
+        Official results for Alaska were printed from the Web site, the Other category 
+        was totaled manually, and the vote fields were populated. 
+      Source_Used_Citation_Abbreviation: COUNTYP020 
+      Source_Used_Citation_Abbreviation: AK_results 
+      Process_Date: 200811
+
+Spatial_Data_Organization_Information:
+  Indirect_Spatial_Reference:
+    U.S. Department of Commerce, 1987, Codes for the Identification of the 
+    States, the District of Columbia and the Outlying areas of the United 
+    States, and Associated Areas (FIPS 5-2): Washington, DC, National 
+    Institute of Standards and Technology.
+
+    U.S. Department of Commerce, 1990, Counties and Equivalent Entities of the 
+    United States, Its Possessions, and Associated Areas (FIPS 6-4): Washington, 
+    DC, National Institute of Standards and Technology.
+
+Spatial_Reference_Information:
+  Horizontal_Coordinate_System_Definition:
+    Geographic:
+      Latitude_Resolution: 0.000278
+      Longitude_Resolution: 0.000278
+      Geographic_Coordinate_Units: Decimal Degrees
+    Geodetic_Model:
+      Horizontal_Datum_Name: North American Datum of 1983
+      Ellipsoid_Name: GRS1980
+      Semi-major_Axis: 6378137
+      Denominator_of_Flattening_Ratio: 298.257222
+
+Entity_and_Attribute_Information:
+  Detailed_Description:
+    Entity_Type:
+      Entity_Type_Label: 
+        Counties and Alaska Election Districts (described by elpo04p020.dbf)
+      Entity_Type_Definition: 
+        The second order division of a nation, such as a parish, municipio,
+        judicial division, and independent cities in Maryland, Missouri, Nevada,
+        and Virginia and districts used for elections in Alaska.
+      Entity_Type_Definition_Source: National Atlas of the United States
+    Attribute:
+      Attribute_Label: Shape
+      Attribute_Definition: 
+        The representation of the entity in the data.
+      Attribute_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: Polygon
+          Enumerated_Domain_Value_Definition: 2-dimensional element
+          Enumerated_Domain_Value_Definition_Source: ESRI GIS software
+    Attribute:
+      Attribute_Label: Area
+      Attribute_Definition:
+        The size of the shape in square coverage units.  In the distributed 
+        file, coverage units represent square decimal degrees.
+      Attribute_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: 0
+          Range_Domain_Maximum: 104.121
+    Attribute:
+      Attribute_Label: Perimeter
+      Attribute_Definition: 
+        The perimeter of shape in coverage units.  In the distributed file, 
+        coverage units represent decimal degrees.
+      Attribute_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: 0.012
+          Range_Domain_Maximum: 228.040
+    Attribute:
+      Attribute_Label: El2004p020
+      Attribute_Definition: Internal feature number
+      Attribute_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: 1
+          Range_Domain_Maximum: 6020
+    Attribute: 
+      Attribute_Label: State 
+      Attribute_Definition: 
+        The two-character abbreviation for the name of the State or State 
+        equivalent in which the area is located. 
+      Attribute_Definition_Source: National Atlas of the United States 
+      Attribute_Domain_Values: 
+        Codeset_Domain: 
+          Codeset_Name: 
+            Codes for the Identification of the States, the District of Columbia 
+            and the Outlying Areas of the United States, and Associated Areas;
+            (Federal Information Processing  Standard (FIPS) 5-2): Washington, 
+            DC, National Institute of Standards and Technology.
+          Codeset_Source: U.S. Department of Commerce 
+    Attribute:
+      Attribute_Label: County
+      Attribute_Definition: 
+        The name of the county or county equivalent.  In Alaska, election districts are 
+        used in place of counties for the purpose of reporting election results.
+      Attribute_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Codeset_Domain:
+          Codeset_Name: 
+            Counties and Equivalent Entities of the United States, Its 
+            Possessions, and Associated Areas; (Federal Information Processing 
+            Standard (FIPS) 6-4): Washington, DC, National Institute of 
+            Standards and Technology.
+          Codeset_Source: U.S. Department of Commerce 
+        Codeset_Domain:
+          Codeset_Name: State-assigned legislative district (lower chamber) code.
+          Codeset_Source: State of Alaska 
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: <blank>
+          Enumerated_Domain_Value_Definition: 
+            Water areas of the United States for which a county designation is 
+            not reported.
+          Enumerated_Domain_Value_Definition_Source: 
+            National Atlas of the United States
+    Attribute:
+      Attribute_Label: Fips
+      Attribute_Definition: 
+        The 5-digit FIPS code of the county or county equivalent. 
+      Attribute_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Codeset_Domain:
+          Codeset_Name: 
+            Counties and Equivalent Entities of the United States, Its 
+            Possessions, and Associated Areas; (Federal Information Processing 
+            Standard (FIPS) 6-4): Washington, DC, National Institute of 
+            Standards and Technology.
+          Codeset_Source: U.S. Department of Commerce 
+        Codeset_Domain:
+          Codeset_Name: 
+            Current state legislative district (lower chamber) code for Alaska.
+          Codeset_Source: U.S. Census Bureau
+    Attribute:
+      Attribute_Label: State_fips
+      Attribute_Definition: 
+        The 2-digit FIPS code of the State or State equivalent.
+      Attribute_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Codeset_Domain:
+          Codeset_Name: 
+            Codes for the Identification of the States, the District of Columbia 
+            and the Outlying Areas of the United States, and Associated Areas;
+            (Federal Information Processing  Standard (FIPS) 5-2): Washington, 
+            DC,  National Institute of Standards and Technology.
+          Codeset_Source: U.S. Department of Commerce
+    Attribute:
+      Attribute_Label: Vote_dem
+      Attribute_Definition: 
+        The number of votes received by the Democratic candidate.  In States with cross-
+        endorsement, this value may include votes for the same person which were recorded 
+        as votes for a different party.
+      Attribute_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: -9999
+          Enumerated_Domain_Value_Definition: 
+            Votes are not recorded for the area because there are no permanent residents.
+          Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: <blank>
+          Enumerated_Domain_Value_Definition: 
+            A water portion of a State, for which votes are not recorded.
+          Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: 12
+          Range_Domain_Maximum: 1907736
+    Attribute:
+      Attribute_Label: Vote_rep
+      Attribute_Definition: 
+        The number of votes received by the Republican candidate.  In States with cross-
+        endorsement, this value may include votes for the same person which were recorded 
+        as votes for a different party.
+      Attribute_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: -9999
+          Enumerated_Domain_Value_Definition: 
+            Votes are not recorded for the area because there are no permanent residents.
+          Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: <blank>
+          Enumerated_Domain_Value_Definition: 
+            A water portion of a State, for which votes are not recorded.
+          Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: 65
+          Range_Domain_Maximum: 1076225
+    Attribute:
+      Attribute_Label: Vote_oth
+      Attribute_Definition: 
+        The number of votes received by other candidates, including third-party and 
+        write-in candidates.  This may include invalid votes in States which do not 
+        maintain separate records of valid and invalid write-in votes.  
+      Attribute_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: -9999
+          Enumerated_Domain_Value_Definition: 
+            Votes are not recorded for the area because there are no permanent residents.
+          Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: <blank>
+          Enumerated_Domain_Value_Definition: 
+            A water portion of a State, for which votes are not recorded.
+          Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: 0
+          Range_Domain_Maximum: 39319
+    Attribute:
+      Attribute_Label: Percent_de
+      Attribute_Definition: 
+        The percentage of votes received by the Democratic candidate.  In States with 
+        cross-endorsement, this value may include votes for the same person which were 
+        recorded as votes for a different party.  Vote percentages have been rounded so 
+        for any given county may total slightly more or slightly less than 100 percent. 
+      Attribute_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: 7.1
+          Range_Domain_Maximum: 89.2
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: -9999
+          Enumerated_Domain_Value_Definition: 
+            Votes are not recorded for the area because there are no permanent residents.
+          Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+    Attribute:
+      Attribute_Label: Percent_re
+      Attribute_Definition: 
+        The percentage of votes received by the Republican candidate.  In States with 
+        cross-endorsement, this value may include votes for the same person which were 
+        recorded as votes for a different party.  Vote percentages have been rounded so 
+        for any given county may total slightly more or slightly less than 100 percent. 
+      Attribute_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: 9.3
+          Range_Domain_Maximum: 92
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: -9999
+          Enumerated_Domain_Value_Definition: 
+            Votes are not recorded for the area because there are no permanent residents.
+          Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+    Attribute:
+      Attribute_Label: Percent_ot
+      Attribute_Definition: 
+        The percentage of votes received by other candidates, including third-party and 
+        write-in candidates.  This may include invalid votes in States which do not 
+        maintain separate records of valid and invalid write-in votes.  Vote percentages 
+        have been rounded so for any given county may total slightly more or slightly 
+        less than 100 percent. 
+      Attribute_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: 0
+          Range_Domain_Maximum: 13.4
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: -9999
+          Enumerated_Domain_Value_Definition: 
+            Votes are not recorded for the area because there are no permanent residents.
+          Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+    Attribute:
+      Attribute_Label: Symbol_cod 
+      Attribute_Definition: 
+        A code used to determine the symbolization of the area in the National Atlas Map 
+        Maker (http://nationalatlas.gov/natlas/Natlasstart.asp)
+      Attribute_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: 1
+          Range_Domain_Maximum: 10
+    Attribute:
+      Attribute_Label: Total_vote
+      Attribute_Definition: 
+        The total number of votes received as described by vote_rep, vote_dem, and vote_oth.  
+      Attribute_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: -9999
+          Enumerated_Domain_Value_Definition: 
+            Votes are not recorded for the area because there are no permanent residents.
+          Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: <blank>
+          Enumerated_Domain_Value_Definition: 
+            A water portion of a State, for which votes are not recorded.
+          Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: 80
+          Range_Domain_Maximum: 3023280
+
+Distribution_Information:
+  Distributor:
+    Contact_Information:
+      Contact_Organization_Primary:
+        Contact_Organization: 
+          Earth Science Information Center, U.S. Geological Survey
+      Contact_Address:
+        Address_Type: Mailing address
+        Address: 507 National Center
+        City: Reston
+        State_or_Province: VA
+        Postal_Code: 20192
+      Contact_Voice_Telephone: 1-888-ASK-USGS (1-888-275-8747)
+      Contact_Voice_Telephone: 703-648-5920 
+      Contact_Instructions: 
+        In addition to the address above there are other ESIC offices throughout 
+        the country.  A full list of these offices is at
+        <http://ask.usgs.gov/esic_index.html>.
+
+  Distribution_Liability: 
+    Although these data have been processed successfully on a computer system at 
+    the U.S. Geological Survey, no warranty expressed or implied is made by the 
+    U.S. Geological Survey regarding the utility of the data on any other 
+    system, nor shall the act of distribution constitute any such warranty.  No 
+    responsibility is assumed by the U.S. Geological Survey in the use of these 
+    data.  
+
+  Standard_Order_Process:
+    Digital_Form:
+      Digital_Transfer_Information:
+        Format_Name: ESRI Shapefile
+      Digital_Transfer_Option:
+        Online_Option:
+          Computer_Contact_Information:
+            Network_Address:
+              Network_Resource_Name: 
+                <http://nationalatlas.gov/atlasftp.html?openChapters=chpbound#chpbound>
+    Digital_Form: 
+      Digital_Transfer_Information: 
+        Format_Name: SDTS 
+      Digital_Transfer_Option: 
+        Online_Option: 
+          Computer_Contact_Information:
+            Network_Address: 
+              Network_Resource_Name: 
+                <http://nationalatlas.gov/atlasftp.html?openChapters=chpbound#chpbound>
+
+    Fees: There is no charge for the map layer.
+
+Metadata_Reference_Information:
+  Metadata_Date: 20090407
+  Metadata_Contact:
+    Contact_Information:
+      Contact_Person_Primary:
+        Contact_Person: Terry Higgins
+        Contact_Organization: National Atlas of the United States
+      Contact_Address:
+        Address_Type: Mailing address
+        Address: 1400 Independence Road
+        City: Rolla
+        State_or_Province: MO
+        Postal_Code: 65401
+      Contact_Voice_Telephone: 573-308-3592
+      Contact_Electronic_Mail_Address: atlasmail@usgs.gov
+  Metadata_Standard_Name:
+    FGDC Content Standards for Digital Geospatial Metadata 
+  Metadata_Standard_Version: FGDC-STD-001-1998
+  Metadata_Security_Information: 
+    Metadata_Security_Classification_System: None
+    Metadata_Security_Classification: Unclassified
+    Metadata_Security_Handling_Description: None

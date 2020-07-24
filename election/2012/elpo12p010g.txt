@@ -1,0 +1,1582 @@
+Metadata:
+  Identification_Information:
+    Citation:
+      Citation_Information:
+        Originator: National Atlas of the United States
+        Publication_Date: 201401
+        Title: Presidential General Election Results - 2012
+        Geospatial_Data_Presentation_Form: Vector digital data
+        Publication_Information:
+          Publication_Place: Rolla, MO
+          Publisher: National Atlas of the United States
+        Online_Linkage: http://nationalatlas.gov/atlasftp-1m.html
+    Description:
+      Abstract:
+        This map layer portrays Presidential general election results for 2012, with results reported 
+        by county or county equivalent, for the 50 United States and the District of Columbia.  
+      Purpose:
+        These data are intended for geographic display and analysis at the national level, and for large 
+        regional areas.  The data should be displayed and analyzed at scales appropriate 
+        for 1:1,000,000-scale data.  No responsibility is assumed by the National Atlas of the United 
+        States in the use of these data.
+
+      Supplemental_Information:
+        Information about National Atlas Web services can be found on the Web Map and Web Feature Services 
+        page; see http://nationalatlas.gov/infodocs/webservices.html.
+
+    Time_Period_of_Content:
+      Time_Period_Information:
+        Range_Of_Dates/Times:
+          Beginning_Date: 19641224
+          Ending_Date: 20111231
+      Currentness_Reference: Ground condition
+    Status:
+      Progress: Complete
+      Maintenance_and_Update_Frequency: As needed
+    Spatial_Domain:
+      Bounding_Coordinates:
+        West_Bounding_Coordinate: 170
+        East_Bounding_Coordinate: -64
+        North_Bounding_Coordinate: 72
+        South_Bounding_Coordinate: 17
+    Keywords:
+      Theme:
+        Theme_Keyword_Thesaurus: ISO 19115 Topic Category
+        Theme_Keyword: Society
+      Theme:	
+        Theme_Keyword_Thesaurus: None
+        Theme_Keyword: 2012 Presidential Election
+        Theme_Keyword: Presidential elections
+        Theme_Keyword: Elections
+        Theme_Keyword: General election
+        Theme_Keyword: Popular votes
+        Theme_Keyword: Democrat
+        Theme_Keyword: Republican
+        Theme_Keyword: Votes
+        Theme_Keyword: Legislative Districts
+        Theme_Keyword: Counties
+
+      Place:
+        Place_Keyword_Thesaurus:
+          Organization for International Standards, 2008, ISO 3166 Country Codes,
+          http://www.iso.org/iso/country_names_and_code_elements. 
+        Place_Keyword: United States
+        Place_Keyword: US
+      Place:
+        Place_Keyword_Thesaurus: None
+        Place_Keyword: USA
+      Place:
+        Place_Keyword_Thesaurus:
+          U.S. Department of Commerce; 2013; American National Standards Institute (ANSI) Codes for States, 
+          the District of Columbia, Puerto Rico, and the Insular Areas of the United States; 
+          Washington, DC; U.S. Census Bureau; http://www.census.gov/geo/reference/ansi_statetables.html.
+        Place_Keyword: Alabama
+        Place_Keyword: Alaska
+        Place_Keyword: Arizona
+        Place_Keyword: Arkansas
+        Place_Keyword: California
+        Place_Keyword: Colorado
+        Place_Keyword: Connecticut
+        Place_Keyword: Delaware
+        Place_Keyword: District of Columbia
+        Place_Keyword: Florida
+        Place_Keyword: Georgia
+        Place_Keyword: Hawaii
+        Place_Keyword: Idaho
+        Place_Keyword: Illinois
+        Place_Keyword: Indiana
+        Place_Keyword: Iowa
+        Place_Keyword: Kansas
+        Place_Keyword: Kentucky
+        Place_Keyword: Louisiana
+        Place_Keyword: Maine
+        Place_Keyword: Maryland
+        Place_Keyword: Massachusetts
+        Place_Keyword: Michigan
+        Place_Keyword: Minnesota
+        Place_Keyword: Mississippi
+        Place_Keyword: Missouri
+        Place_Keyword: Montana
+        Place_Keyword: Nebraska
+        Place_Keyword: Nevada
+        Place_Keyword: New Hampshire
+        Place_Keyword: New Jersey
+        Place_Keyword: New Mexico
+        Place_Keyword: New York
+        Place_Keyword: North Carolina
+        Place_Keyword: North Dakota
+        Place_Keyword: Ohio
+        Place_Keyword: Oklahoma
+        Place_Keyword: Oregon
+        Place_Keyword: Pennsylvania
+        Place_Keyword: Rhode Island
+        Place_Keyword: South Carolina
+        Place_Keyword: South Dakota
+        Place_Keyword: Tennessee
+        Place_Keyword: Texas
+        Place_Keyword: Utah
+        Place_Keyword: Vermont
+        Place_Keyword: Virginia
+        Place_Keyword: Washington
+        Place_Keyword: West Virginia
+        Place_Keyword: Wisconsin
+        Place_Keyword: Wyoming
+    Access_Constraints: None
+    Use_Constraints:
+      None.  Acknowledgment of The National Atlas of the United States of America would be appreciated in 
+      products derived from these data.
+    Point_of_Contact:
+      Contact_Information:
+        Contact_Organization_Primary:
+          Contact_Organization: National Atlas of the United States
+        Contact_Address:
+          Address_Type: Mailing and physical address
+          Address: U.S. Geological Survey
+          Address: 511 National Center
+          Address: 12201 Sunrise Valley Drive 
+          City: Reston
+          State_or_Province: VA
+          Postal_Code: 20192
+        Contact_Voice_Telephone: 1-888-ASK-USGS (1-888-275-8747)
+        Contact_Electronic_Mail_Address: atlasmail@usgs.gov
+        Contact_Instructions:
+          For questions about this map layer or metadata, please contact the National Atlas using the 
+          information above, or through the U.S. Geological Survey contact page at 
+          http://www.usgs.gov/ask/.  For distribution questions, please see the Distribution Information 
+          elsewhere in this metadata. 
+
+  Data_Quality_Information:
+    Logical_Consistency_Report:
+      No checks for logical consistency were performed on this map layer.
+    Completeness_Report:
+      This map layer includes Presidential election results for the 2012 general election, for the 50 
+      United States and the District of Columbia.  The data represent official results as reported by individual 
+      States.  
+
+    Lineage:
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: National Atlas of the United States
+            Publication_Date: 201305
+            Title: 1:1,000,000-Scale County Boundaries of the United States
+            Publication_Information:
+              Publication_Place: Rolla, MO
+              Publisher: National Atlas of the United States
+            Online_Linkage: http://nationalatlas.gov/atlasftp-1m.html
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 201305
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Counties
+        Source_Contribution: Spatial and attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Alaska Redistricting Board
+            Publication_Date: Unpublished material
+            Title: Alaska Legislative Districts
+        Type_of_Source_Media: Electronic mail
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Alaska legislative districts
+        Source_Contribution: Spatial information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Alabama Secretary of State
+            Publication_Date: 20121217
+            Title: 2012 General Election, Statewide Results
+            Publication_Information:
+              Publication_Place: Montgomery, AL
+              Publisher: Alabama Secretary of State, Elections Division
+            Online_Linkage: http://alabamavotes.gov/downloads/election/2012/general/statecert-amended-general-12-17-2012.pdf
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121217
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Alabama election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: State of Alaska, Division of Elections
+            Publication_Date: 20121128
+            Title: State of Alaska, 2012 General Election, Official Results
+            Publication_Information:
+              Publication_Place: Juneau, AK
+              Publisher: State of Alaska, Division of Elections
+            Online_Linkage: http://www.elections.alaska.gov/ei_return_2012_GENR.php
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121128
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Alaska election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Arizona Secretary of State
+            Publication_Date: 20121203
+            Title: State of Arizona Official Canvass, 2012 General Election
+            Publication_Information:
+              Publication_Place: Phoenix, AZ
+              Publisher: Arizona Secretary of State
+            Online_Linkage: http://www.azsos.gov/election/2012/General/Canvass2012GE.pdf
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121203
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Arizona election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Arkansas Secretary of State
+            Publication_Date: 20121121
+            Title: Arkansas State General Election, Official Results
+            Publication_Information:
+              Publication_Place: Little Rock, AR
+              Publisher: Arkansas Secretary of State, Elections Division
+            Online_Linkage: http://results.enr.clarityelections.com/AR/42843/113233/en/reports.html
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121121
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Arkansas election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: California Secretary of State
+            Publication_Date: 20130410
+            Title: November 6, 2012, General Election, Supplement to the Statement of Vote
+            Publication_Information:
+              Publication_Place: Sacramento, CA
+              Publisher: California Secretary of State
+            Online_Linkage: http://www.sos.ca.gov/elections/sov/2012-general/ssov/ssov-complete.pdf
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20130410
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: California election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Colorado Secretary of State
+            Publication_Date: 20130503
+            Title: 2012 General Election, Official Results
+            Publication_Information:
+              Publication_Place: Denver, CO
+              Publisher: Colorado Secretary of State
+            Online_Linkage: http://results.enr.clarityelections.com/CO/43032/114663/en/reports.html
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20130503
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Colorado election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Connecticut Secretary of the State
+            Publication_Date: 20130111
+            Title: 2012 General Election, Statement of Vote
+            Publication_Information:
+              Publication_Place: Hartford, CT
+              Publisher: Connecticut Secretary of the State
+            Online_Linkage: 
+              http://www.statementofvote-sots.ct.gov/StatementOfVote/WebModules/ReportsLink/PresCounty.aspx
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Connecticut election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Office of the State Election Commissioner
+            Publication_Date: 20121114
+            Title: Official Election Results, General Election, November 6, 2012
+            Publication_Information:
+              Publication_Place: Dover, DE
+              Publisher: Office of the State Election Commissioner
+            Online_Linkage: http://elections.delaware.gov/results/html/stwoff_kns.shtml
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121114
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Delaware election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: District of Columbia, Board of Elections
+            Publication_Date: 20121129
+            Title: 
+              Official Election Results, District of Columbia General and Special 
+              Election – November 6, 2012
+            Publication_Information:
+              Publication_Place: Washington, DC
+              Publisher: District of Columbia, Board of Elections
+            Online_Linkage: http://www.voteresults.org/default1112.asp
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121129
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: DC election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Florida Department of State, Division of Elections
+            Publication_Date: Unknown
+            Title: November 6, 2012 General Election, Official Results
+            Publication_Information:
+              Publication_Place: Tallahassee, FL
+              Publisher: Florida Department of State, Division of Elections
+            Online_Linkage: 
+              http://doe.dos.state.fl.us/elections/resultsarchive/downloadresults.asp?ElectionDate=11/6/2012&DATAMODE=
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Florida election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Georgia Secretary of State
+            Publication_Date: 20121121
+            Title: General Election, November 6, 2012, Official Results
+            Publication_Information:
+              Publication_Place: Atlanta, GA
+              Publisher: Georgia Secretary of State, Elections Division
+            Online_Linkage: http://results.enr.clarityelections.com/GA/42277/113204/en/reports.html
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121121
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Georgia election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: State of Hawaii, Office of Elections
+            Publication_Date: 20121120
+            Title: 2012 General Election, Statement of Vote
+            Publication_Information:
+              Publication_Place: Pearl City, HI
+              Publisher: State of Hawaii, Office of Elections
+            Online_Linkage: http://hawaii.gov/elections/results/2012/general/elections/results/2012/general/
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121120
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Hawaii election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Idaho Secretary of State
+            Publication_Date: Unknown
+            Title: November 6, 2012 General Election Results
+            Publication_Information:
+              Publication_Place: Boise, ID
+              Publisher: Idaho Secretary of State, Election Division
+            Online_Linkage: http://www.sos.idaho.gov/elect/results.htm
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Idaho election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Illinois State Board of Elections
+            Publication_Date: Unknown
+            Title: General Election, November 6, 2012, Ballots Cast
+            Publication_Information:
+              Publication_Place: Springfield, IL
+              Publisher: Illinois State Board of Elections
+            Online_Linkage:
+              http://www.elections.il.gov/electioninformation/VoteTotalsList.aspx?ElectionType=GE&ElectionID=33&SearchType=OfficeSearch&OfficeID=6279&QueryType=Office&
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Illinois election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Indiana Secretary of State
+            Publication_Date: 20121128
+            Title: Indiana General Election, November 6, 2012, Election Results
+            Publication_Information:
+              Publication_Place: Indianapolis,IN
+              Publisher: Indiana Secretary of State, Elections Division
+            Online_Linkage: 
+              http://www.in.gov/apps/sos/election/general/general2012?page=index&countyID=-1&officeID=-1&districtID=-1&candidate=
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121128
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Indiana election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Iowa Secretary of State
+            Publication_Date: Unknown
+            Title: Official Results, General Election, November 6, 2012 
+            Publication_Information:
+              Publication_Place: Des Moines, IA
+              Publisher: Iowa Secretary of State
+            Online_Linkage: 
+              http://electionresults.sos.iowa.gov/resultsCTY.aspx?type=FED&rid=1001&osn=1001&map=CTY&PresPage=0
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Iowa election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Kansas Secretary of State
+            Publication_Date: Unknown
+            Title: 2012 General Election Results by county
+            Publication_Information:
+              Publication_Place: Topeka, KS
+              Publisher: Kansas Secretary of State
+            Online_Linkage: https://www.sos.ks.gov/elections/elections_statistics.html
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Kansas election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Kentucky State Board of Elections
+            Publication_Date: Unknown
+            Title: Official 2012 General Election Results
+            Publication_Information:
+              Publication_Place: Frankfort, KY
+              Publisher: Kentucky State Board of Elections
+            Online_Linkage: http://results.enr.clarityelections.com/KY/43107/113206/en/reports.html#
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Kentucky election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Louisiana Secretary of State
+            Publication_Date: Unknown
+            Title: Election Results by Parish, Official Results for election Date 11/06/2012
+            Publication_Information:
+              Publication_Place: Baton Rouge, LA
+              Publisher: Louisiana Secretary of State
+            Online_Linkage: http://staticresults.sos.la.gov/11062012/11062012_46257.html
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Louisiana election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Maine Secretary of State
+            Publication_Date: Unknown
+            Title: November 6, 2012, General Election Tabulations
+            Publication_Information:
+              Publication_Place: Augusta, ME
+              Publisher: Maine Secretary of State; Bureau of Corporations, Elections & Commissions
+            Online_Linkage: https://www.maine.gov/sos/cec/elec/prior12-13.htm#nov
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Maine election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Maryland Secretary of State
+            Publication_Date: 20121128
+            Title: November 6, 2012 General Election Results
+            Publication_Information:
+              Publication_Place: Annapolis, MD
+              Publisher: Maryland State Board of Elections
+            Online_Linkage:
+              http://www.elections.state.md.us/elections/2012/results/general/gen_detail_results_2012_4_BOT001-.html
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121128
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Maryland election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Secretary of the Commonwealth of Massachusetts
+            Publication_Date: Unknown
+            Title: 2012 President General Election 
+            Publication_Information:
+              Publication_Place: Boston, MA
+              Publisher: Secretary of the Commonwealth of Massachusetts
+            Online_Linkage: http://electionstats.state.ma.us/
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Massachusetts election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Michigan Secretary of State
+            Publication_Date: 20130104
+            Title: Official Election Results, General Election, November 6, 2012 
+            Publication_Information:
+              Publication_Place: Lansing, MI
+              Publisher: Michigan Secretary of State
+            Online_Linkage: http://miboecfr.nictusa.com/election/results/12GEN/01000000.html
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20130104
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Michigan election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Minnesota Secretary of State
+            Publication_Date: 20121127
+            Title: Minnesota State Canvassing Report, State General Election, Tuesday, November 6, 2012
+            Publication_Information:
+              Publication_Place: Saint Paul, MN
+              Publisher: Minnesota Secretary of State
+            Online_Linkage: http://www.sos.state.mn.us/index.aspx?page=1705
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121127
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Minnesota election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Mississippi Secretary of State
+            Publication_Date: 20121203
+            Title: 
+              Total Votes Reported by County for the 2012 General Election, United States President and Vice President
+            Publication_Information:
+              Publication_Place: Jackson, MS
+              Publisher: Mississippi Secretary of State
+            Online_Linkage:
+              http://www.sos.ms.gov/elections%5Celectionresults%5C2012General%5Ccertified%20results%5CPresident%20and%20Vice%20President.pdf
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121203
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Mississippi election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Missouri Secretary of State
+            Publication_Date: 20121205
+            Title: Official Election Returns, State of Missouri - General Election, Tuesday, November 06, 2012
+            Publication_Information:
+              Publication_Place: Jefferson City, MO
+              Publisher: Missouri Secretary of State, Board of State Canvassers
+            Online_Linkage: http://enr.sos.mo.gov/ENR/Views/TabularData.aspx?TabSRace=SpecifyARace^Races^0^0^0^President,%20Vice%20President^011656688155
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121205
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Missouri election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Montana Secretary of State
+            Publication_Date: 20121123
+            Title: 2012 Statewide General Election Canvass
+            Publication_Information:
+              Publication_Place: Helena, MT
+              Publisher: Montana Secretary of State
+            Online_Linkage: http://sos.mt.gov/elections/2012/2012_General_Canvass.pdf
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121123
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Montana election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Nebraska Secretary of State
+            Publication_Date: 201211
+            Title: Official Results of Nebraska General Election - November 6, 2012
+            Publication_Information:
+              Publication_Place: Lincoln, NE
+              Publisher: Nebraska Secretary of State, Election Division
+            Online_Linkage: http://www.sos.ne.gov/elec/2012/pdf/2012-general-canvass.pdf
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Nebraska election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Nevada Secretary of State
+            Publication_Date: 20121127
+            Title: U.S. Presidential Race, Official Results as Canvassed by the Nevada Supreme Court 
+            Publication_Information:
+              Publication_Place: Carson City, NV
+              Publisher: Nevada Secretary of State, Elections Division
+            Online_Linkage: http://www.silverstateelection.com/USPresidential/index.shtml
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121127
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Nevada election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: New Hampshire Secretary of State
+            Publication_Date: Unknown
+            Title: President of the United States - 2012 General Election
+            Publication_Information:
+              Publication_Place: Concord, NH
+              Publisher: New Hampshire Secretary of State, Elections Division
+            Online_Linkage: http://sos.nh.gov/2012PresGen.aspx
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: New Hampshire election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: State of New Jersey Department of State, Division of Elections
+            Publication_Date: 20130205
+            Title: 2012 Official General Election Results by County
+            Publication_Information:
+              Publication_Place: Trenton, NJ
+              Publisher: State of New Jersey Department of State, Division of Elections
+            Online_Linkage: http://nj.gov/state/elections/election-information-archive-2012.html#ge
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20130205
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: New Jersey election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: New Mexico Secretary of State
+            Publication_Date: Unknown
+            Title: Canvass of Returns of General Election Held on November 6, 2012 – State of New Mexico
+            Publication_Information:
+              Publication_Place: Santa Fe, NM
+              Publisher: New Mexico Secretary of State, Election Division
+            Online_Linkage: http://www.sos.state.nm.us/uploads/files/Pages%20from%20ALLNMG12%20CAN%20STATEWIDE.pdf
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: New Mexico election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: New York State Board of Elections
+            Publication_Date: 20130320
+            Title: NYS Board of Elections President and Vice-President Election Returns Nov. 6, 2012
+            Publication_Information:
+              Publication_Place: Albany, NY
+              Publisher: New York State Board of Elections 
+            Online_Linkage: http://www.elections.ny.gov/NYSBOE/elections/2012/General/President_04-09-2013.pdf
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20130320
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: New York election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: North Carolina State Board of Elections
+            Publication_Date: 20130122
+            Title: November 6, 2012 General Election, Official Results
+            Publication_Information:
+              Publication_Place: NC
+              Publisher: North Carolina State Board of Elections
+            Online_Linkage: http://results.enr.clarityelections.com/NC/42923/114645/Web01/en/summary.html#
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20130122
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: North Carolina election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: North Dakota Secretary of State, Elections Division
+            Publication_Date: 20130423
+            Title: Official Results General Election - November 6, 2012
+            Publication_Information:
+              Publication_Place: Bismarck, ND
+              Publisher: North Dakota Secretary of State
+            Online_Linkage: http://results.sos.nd.gov/resultsCountyList.aspx
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20130423
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: North Dakota election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Ohio Secretary of State
+            Publication_Date: Unknown
+            Title: Official Results for the November 6, 2012 General Election 
+            Publication_Information:
+              Publication_Place: Columbus, OH
+              Publisher: Ohio Secretary of State
+            Online_Linkage: http://www.sos.state.oh.us/SOS/elections/Research/electResultsMain/2012Results.aspx
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Ohio election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Oklahoma State Election Board
+            Publication_Date: 20121120
+            Title: Official Results, General Election, November 6, 2012
+            Publication_Information:
+              Publication_Place: Oklahoma City, OK
+              Publisher: Oklahoma State Election Board
+            Online_Linkage: 
+              http://www.ok.gov/elections/Candidates_&_Elections/General_Election_-_November_6,_2012.html
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121120
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Oklahoma election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Oregon Secretary of State, Elections Division 
+            Publication_Date: Unknown
+            Title: November 6, 2012, General Election Abstract of Votes, United States President
+            Publication_Information:
+              Publication_Place: Salem, OR
+              Publisher: Oregon Secretary of State
+            Online_Linkage: http://oregonvotes.org/doc/history/nov62012/G12_Abstract.pdf
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Oregon election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Pennsylvania Secretary of State
+            Publication_Date: Unknown
+            Title: November 6, 2012 General Election Results
+            Publication_Information:
+              Publication_Place: Harrisburg, PA
+              Publisher: Pennsylvania Department of State
+            Online_Linkage: http://www.dos.state.pa.us/portal/server.pt/community/department_of_state/12405
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Pennsylvania election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Rhode Island Board of Elections
+            Publication_Date: 20121126
+            Title: 2012 General Election, Official Results
+            Publication_Information:
+              Publication_Place: Providence, RI
+              Publisher: Rhode Island Board of Elections
+            Online_Linkage: http://www.ri.gov/election/results/2012/general_election//
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121126
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Rhode Island election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: South Carolina State Election Commission
+            Publication_Date: 20130409
+            Title: 2012 General Election, Official Results
+            Publication_Information:
+              Publication_Place: Columbia, SC
+              Publisher: South Carolina State Election Commission
+            Online_Linkage: http://www.enr-scvotes.org/SC/42513/116143/en/reports.html#
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20130409
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: South Carolina election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: South Dakota Secretary of State
+            Publication_Date: 20130115
+            Title: Presidential Electors, 2012 General Election, OFFICIAL RESULTS 
+            Publication_Information:
+              Publication_Place: Pierre, SD
+              Publisher: South Dakota Secretary of State
+            Online_Linkage:
+              http://sdsos.gov/content/html/elections/electvoterpdfs/2012/GeneralElectionDocs/2012generalelectionstatewidecandidatesbycounty.pdf
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20130115
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: South Dakota election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Tennessee Secretary of State
+            Publication_Date: 20121205
+            Title: State of Tennessee, November 6, 2012 General Election 
+            Publication_Information:
+              Publication_Place: Nashville, TN
+              Publisher: Tennessee Secretary of State
+            Online_Linkage: http://www.tn.gov/sos/election/results/2012-11/USPresidentCountyTotals.pdf
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121205
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Tennessee election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Texas Secretary of State
+            Publication_Date: Unknown
+            Title: 2012 General Election 
+            Publication_Information:
+              Publication_Place: Austin, TX
+              Publisher: Texas Secretary of State, Elections Division
+            Online_Linkage: http://elections.sos.state.tx.us/elchist.exe
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Texas election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Utah Lieutenant Governor, Elections
+            Publication_Date: Unknown
+            Title: 2012 General Election Canvass Report
+            Publication_Information:
+              Publication_Place: Salt Lake City, UT
+              Publisher: Utah Lieutenant Governor
+            Online_Linkage:
+              http://elections.utah.gov/Media/Default/2012%20Canvass/2012%20General%20Canvass%20Report.xls
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Utah election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Vermont Secretary of State, Elections and Campaign Finance Division
+            Publication_Date: 20121113
+            Title: 
+              Official Report of the Canvassing Committee, United States and Vermont Statewide Offices,
+              General Election, November 6, 2012
+            Publication_Information:
+              Publication_Place: Montpelier, VT
+              Publisher: Vermont Secretary of State, Election Division
+            Online_Linkage: http://vermont-elections.org/elections1/2012ElectionResults/2012_election_info.html
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121113
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Vermont election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Virginia State Board of Elections
+            Publication_Date: Unknown
+            Title: November 6, 2012 General Election Official Results
+            Publication_Information:
+              Publication_Place: Richmond, VA
+              Publisher: Virginia State Board of Elections
+            Online_Linkage: 
+              https://www.voterinfo.sbe.virginia.gov/election/DATA/2012/68C30477-AAF2-46DD-994E-5D3BE8A89C9B/Official/1_l_1323CEA4-0C91-4BA4-BEC1-ECF0B10F499F_s.shtml
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Virginia election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Washington Secretary of State
+            Publication_Date: 20121205
+            Title: November 06, 2012 General Election Results
+            Publication_Information:
+              Publication_Place: Olympia, WA
+              Publisher: Washington Secretary of State
+            Online_Linkage: http://vote.wa.gov/results/20121106/Export.html
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121205
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Washington election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: West Virginia Secretary of State
+            Publication_Date: Unknown
+            Title: General Election, November 6, 2012, Official Results 
+            Publication_Information:
+              Publication_Place: Charleston, WV
+              Publisher: West Virginia Secretary of State, Election Division
+            Online_Linkage: http://apps.sos.wv.gov/elections/results/download.aspx?year=2012&eid=13
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: West Virginia election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Government Accountability Board, State of Wisconsin 
+            Publication_Date: 20121226
+            Title: G.A.B. Canvass Reporting System, County by County Report, 2012 Presidential and General Election
+            Publication_Information:
+              Publication_Place: Madison, WI
+              Publisher: Government Accountability Board, State of Wisconsin
+            Online_Linkage: http://gab.wi.gov/sites/default/files/County%20by%20County_11.6.12.xls
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121226
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: Wisconsin election results
+        Source_Contribution: Attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: Wyoming Secretary of State
+            Publication_Date: Unknown
+            Title: Statewide Candidates Official Summary Wyoming General Election, November 6, 2012
+            Publication_Information:
+              Publication_Place: WY
+              Publisher: Wyoming Secretary of State
+            Online_Linkage:
+              http://soswy.state.wy.us/Elections/Docs/2012/Results/General/2012_Statewide_Candidates_Summary.pdf
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 20121106
+          Source_Currentness_Reference: Ground condition
+        Source_Citation_Abbreviation: Wyoming election results
+        Source_Contribution: Attribute information
+
+      Process_Step:
+        Process_Description: 
+          The county boundaries file was used as a starting point.  Because Alaska reports results by State legislative 
+          district, county boundaries for Alaska were deleted and Alaska legislative district boundaries were added to 
+          the file.  Kalawao County and Maui County, HI were merged into a single area.  The State election results 
+          data sets were downloaded and joined to the boundaries file using the FIPS attribute.
+
+          The Missouri Secretary of State reported Jackson County and Kansas City voting totals separately; the votes 
+          for both entities were combined into Jackson County.  
+
+          In New York, both Mitt Romney and Barack Obama appeared on the ballot under more than one party; votes were 
+          totaled based on the candidate, not the political party.  
+
+          Oklahoma only reported votes for the Republican and Democratic parties; votes were assigned to the 
+          appropriate candidate.  
+
+          Rhode Island and Massachusetts report results by towns and cities.  City and town results were aggregated 
+          into the county in which the city or town is located.  The vote total for cities and towns in Rhode Island 
+          does not match the State total, because overseas military and civilians residing overseas are issued ballots 
+          that contain only federal offices; these votes are therefore not assigned to a particular city or town and 
+          are not included in this data set. 
+
+          Kalawao County and Maui County, Hawaii results are reported together.
+        Source_Used_Citation_Abbreviation: Counties
+        Source_Used_Citation_Abbreviation: Alaska Legislative Districts
+        Source_Used_Citation_Abbreviation: Alabama election results
+        Source_Used_Citation_Abbreviation: Alaska election results
+        Source_Used_Citation_Abbreviation: Arizona election results
+        Source_Used_Citation_Abbreviation: Arkansas election results
+        Source_Used_Citation_Abbreviation: California election results
+        Source_Used_Citation_Abbreviation: Colorado election results
+        Source_Used_Citation_Abbreviation: Connecticut election results
+        Source_Used_Citation_Abbreviation: Delaware election results
+        Source_Used_Citation_Abbreviation: DC election results
+        Source_Used_Citation_Abbreviation: Florida election results
+        Source_Used_Citation_Abbreviation: Georgia election results
+        Source_Used_Citation_Abbreviation: Hawaii election results
+        Source_Used_Citation_Abbreviation: Idaho election results
+        Source_Used_Citation_Abbreviation: Illinois election results
+        Source_Used_Citation_Abbreviation: Indiana election results
+        Source_Used_Citation_Abbreviation: Iowa election results
+        Source_Used_Citation_Abbreviation: Kansas election results
+        Source_Used_Citation_Abbreviation: Kentucky election results
+        Source_Used_Citation_Abbreviation: Louisiana election results
+        Source_Used_Citation_Abbreviation: Maine election results
+        Source_Used_Citation_Abbreviation: Maryland election results
+        Source_Used_Citation_Abbreviation: Massachusetts election results
+        Source_Used_Citation_Abbreviation: Michigan election results
+        Source_Used_Citation_Abbreviation: Minnesota election results
+        Source_Used_Citation_Abbreviation: Mississippi election results
+        Source_Used_Citation_Abbreviation: Missouri election results
+        Source_Used_Citation_Abbreviation: Montana election results
+        Source_Used_Citation_Abbreviation: Nebraska election results
+        Source_Used_Citation_Abbreviation: Nevada election results
+        Source_Used_Citation_Abbreviation: New Hampshire election results
+        Source_Used_Citation_Abbreviation: New Jersey election results
+        Source_Used_Citation_Abbreviation: New Mexico election results
+        Source_Used_Citation_Abbreviation: New York election results
+        Source_Used_Citation_Abbreviation: North Carolina election results
+        Source_Used_Citation_Abbreviation: North Dakota election results
+        Source_Used_Citation_Abbreviation: Ohio election results
+        Source_Used_Citation_Abbreviation: Oklahoma election results
+        Source_Used_Citation_Abbreviation: Oregon election results
+        Source_Used_Citation_Abbreviation: Pennsylvania election results
+        Source_Used_Citation_Abbreviation: Rhode Island election results
+        Source_Used_Citation_Abbreviation: South Carolina election results
+        Source_Used_Citation_Abbreviation: South Dakota election results
+        Source_Used_Citation_Abbreviation: Tennessee election results
+        Source_Used_Citation_Abbreviation: Texas election results
+        Source_Used_Citation_Abbreviation: Utah election results
+        Source_Used_Citation_Abbreviation: Vermont election results
+        Source_Used_Citation_Abbreviation: Virginia election results
+        Source_Used_Citation_Abbreviation: Washington election results
+        Source_Used_Citation_Abbreviation: West Virginia election results
+        Source_Used_Citation_Abbreviation: Wisconsin election results
+        Source_Used_Citation_Abbreviation: Wyoming election results
+        Process_Date: 2013
+
+  Spatial_Data_Organization_Information:
+    Indirect_Spatial_Reference:
+      U.S. Department of Commerce; 2013; American National Standards Institute (ANSI) Codes for States, the 
+      District of Columbia, Puerto Rico, and the Insular Areas of the United States; U.S. Census Bureau.
+
+      U.S. Department of Commerce; 2009; ANSI Codes for the Identification of Counties and Equivalent Areas 
+      of the United States, Puerto Rico, and the Insular Areas; U.S. Census Bureau.
+    Direct_Spatial_Reference_Method: Vector
+    Point_and_Vector_Object_Information:
+      SDTS_Terms_Description:
+        SDTS_Point_and_Vector_Object_Type: G-Polygon 
+        Point_and_Vector_Object_Count: 3153
+
+  Spatial_Reference_Information:
+    Horizontal_Coordinate_System_Definition:
+      Geographic:
+        Latitude_Resolution: 0.000150
+        Longitude_Resolution: 0.000150
+        Geographic_Coordinate_Units: Decimal degrees
+      Geodetic_Model:
+        Horizontal_Datum_Name: North American Datum of 1983
+        Ellipsoid_Name: GRS1980
+        Semi-major_Axis: 6378137
+        Denominator_of_Flattening_Ratio: 298.257222
+
+  Entity_and_Attribute_Information:
+    Detailed_Description:
+      Entity_Type:
+        Entity_Type_Label: Presidential election results 
+        Entity_Type_Definition:
+          Presidential election results for the 2012 general election, reported by county or county equivalent for all 
+          States except Alaska.  Results for Alaska are reported by legislative district. 
+        Entity_Type_Definition_Source: National Atlas of the United States
+      Attribute:
+        Attribute_Label: Shape
+        Attribute_Definition: The representation of the entity in the data.
+        Attribute_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Enumerated_Domain:
+            Enumerated_Domain_Value: Polygon
+            Enumerated_Domain_Value_Definition: 2-dimensional element
+            Enumerated_Domain_Value_Definition_Source: ESRI GIS software
+      Attribute:
+        Attribute_Label: State
+        Attribute_Definition:
+          The two-character abbreviation for the name of the State in which the county, county equivalent, or 
+          legislative district is located.  
+        Attribute_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Codeset_Domain:
+            Codeset_Name:
+              American National Standards Institute (ANSI) Codes for States, the District of Columbia, 
+              Puerto Rico, and the Insular Areas of the United States
+            Codeset_Source: U.S. Census Bureau
+      Attribute:
+        Attribute_Label: State_fips
+        Attribute_Definition:
+          The two-digit code for the State in which the county, county equivalent, or legislative district is 
+          located.
+        Attribute_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Codeset_Domain:
+            Codeset_Name:
+              American National Standards Institute (ANSI) Codes for States, the District of Columbia, 
+              Puerto Rico, and the Insular Areas of the United States
+            Codeset_Source: U.S. Department of Commerce
+      Attribute:
+        Attribute_Label: County
+        Attribute_Definition: The name of the county or county equivalent, or the legislative district number.
+        Attribute_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Codeset_Domain:
+            Codeset_Name:
+              ANSI Codes for the Identification of Counties and Equivalent Areas of the United States, 
+              Puerto Rico, and the Insular Areas
+            Codeset_Source: U.S. Department of Commerce
+        Attribute_Domain_Values:
+          Enumerated_Domain: 
+            Enumerated_Domain_Value: Legislative District XX
+            Enumerated_Domain_Value_Definition: 
+              The identifier for the Alaska legislative district, where XX is the district number.  Districts are 
+              numbered from 01 to 40.
+            Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+      Attribute:
+        Attribute_Label: Fips
+        Attribute_Definition: 
+          The 5-digit FIPS code of the county or county equivalent.  The code consists of the 2-digit State 
+          code followed by the 3-digit county code.  In Alaska, the 5-character Alaska Legislative District number.
+        Attribute_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Codeset_Domain:
+            Codeset_Name:
+              ANSI Codes for the Identification of Counties and Equivalent Areas of the United States, 
+              Puerto Rico, and the Insular Areas
+            Codeset_Source: U.S. Department of Commerce
+        Attribute_Domain_Values:
+          Enumerated_Domain: 
+            Enumerated_Domain_Value: ALDxx
+            Enumerated_Domain_Value_Definition: 
+              The 5-character identifier for the Alaska legislative district, where xx is the district number.  
+              Districts are numbered from 01 to 40.
+            Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+      Attribute:
+        Attribute_Label: Obama
+        Attribute_Definition: For the specified area, the total popular vote received by Barack H. Obama. 
+        Attribute_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Range_Domain:
+            Range_Domain_Minimum: 5
+            Range_Domain_Maximum: 221690
+      Attribute:
+        Attribute_Label: Romney
+        Attribute_Definition: For the specified area, the total popular vote received by W. Mitt Romney.
+        Attribute_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Range_Domain:
+            Range_Domain_Minimum: 54
+            Range_Domain_Maximum: 885333
+      Attribute:
+        Attribute_Label: Others
+        Attribute_Definition: 
+          For the specified area, the total popular vote received by candidates other than Barack H. Obama or W. Mitt 
+          Romney.
+        Attribute_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Range_Domain:
+            Range_Domain_Minimum: 0
+            Range_Domain_Maximum: 78831
+      Attribute:
+        Attribute_Label: Ttl_vt
+        Attribute_Definition: For the specified area, the total number of votes cast for President of the United States.
+        Attribute_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Range_Domain:
+            Range_Domain_Minimum: 64
+            Range_Domain_Maximum: 3181067
+      Attribute:
+        Attribute_Label: Pct_obm
+        Attribute_Definition: For the specified area, the percentage of votes cast for Barack H. Obama.
+        Attribute_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Range_Domain:
+            Range_Domain_Minimum: 0.550431
+            Range_Domain_Maximum: 93.386328
+      Attribute:
+        Attribute_Label: Pct_rom
+        Attribute_Definition: For the specified area, the percentage of votes cast for W. Mitt Romney.
+        Attribute_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Range_Domain:
+            Range_Domain_Minimum: 5.977742
+            Range_Domain_Maximum: 96.14698
+      Attribute:
+        Attribute_Label: Pct_oth
+        Attribute_Definition: 
+          For the specified area, the percentage of votes cast for candidates other than Barack H. Obama or W. Mitt 
+          Romney.
+        Attribute_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Range_Domain:
+            Range_Domain_Minimum: 0
+            Range_Domain_Maximum: 14.865709
+      Attribute:
+        Attribute_Label: Winner
+        Attribute_Definition: For the specified area, the name of the winning candidate.
+        Attribute_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Enumerated_Domain:
+            Enumerated_Domain_Value: Obama
+            Enumerated_Domain_Value_Definition: In the specified area, Barack H. Obama received the most votes.
+            Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Enumerated_Domain:
+            Enumerated_Domain_Value: Romney
+            Enumerated_Domain_Value_Definition: In the specified area, W. Mitt Romney received the most votes.
+            Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+      Attribute:
+        Attribute_Label: Pct_wnr
+        Attribute_Definition: 
+          For the specified area, the percentage of the vote received by the winning candidate.
+        Attribute_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Range_Domain:
+            Range_Domain_Minimum: 47.867466
+            Range_Domain_Maximum: 96.14698
+      Attribute:
+        Attribute_Label: Group
+        Attribute_Definition: The mapping category used for the area.
+        Attribute_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Enumerated_Domain:
+            Enumerated_Domain_Value: 11
+            Enumerated_Domain_Value_Definition: Barack H. Obama received less than 50 percent of the vote.
+            Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Enumerated_Domain:
+            Enumerated_Domain_Value: 12
+            Enumerated_Domain_Value_Definition: Barack H. Obama received between 50 and 59.9 percent of the vote.
+            Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Enumerated_Domain:
+            Enumerated_Domain_Value: 13
+            Enumerated_Domain_Value_Definition: Barack H. Obama received between 60 and 69.9 percent of the vote.
+            Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Enumerated_Domain:
+            Enumerated_Domain_Value: 14
+            Enumerated_Domain_Value_Definition: Barack H. Obama received between 70 and 79.9 percent of the vote.
+            Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Enumerated_Domain:
+            Enumerated_Domain_Value: 15
+            Enumerated_Domain_Value_Definition: Barack H. Obama received 80 percent or more of the vote.
+            Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Enumerated_Domain:
+            Enumerated_Domain_Value: 21
+            Enumerated_Domain_Value_Definition: W. Mitt Romney received less than 50 percent of the vote.
+            Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Enumerated_Domain:
+            Enumerated_Domain_Value: 22
+            Enumerated_Domain_Value_Definition: W. Mitt Romney received between 50 and 59.9 percent of the vote.
+            Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Enumerated_Domain:
+            Enumerated_Domain_Value: 23
+            Enumerated_Domain_Value_Definition: W. Mitt Romney received between 60 and 69.9 percent of the vote.
+            Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Enumerated_Domain:
+            Enumerated_Domain_Value: 24
+            Enumerated_Domain_Value_Definition: W. Mitt Romney received between 70 and 79.9 percent of the vote.
+            Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Enumerated_Domain:
+            Enumerated_Domain_Value: 25
+            Enumerated_Domain_Value_Definition: W. Mitt Romney received 80 percent or more of the vote.
+            Enumerated_Domain_Value_Definition_Source: National Atlas of the United States
+
+  Distribution_Information:
+    Distributor:
+      Contact_Information:
+        Contact_Organization_Primary:
+          Contact_Organization: Earth Explorer, U.S. Geological Survey
+        Contact_Address:
+          Address_Type: Mailing address
+          Address: U.S. Geological Survey
+          Address: 47914 252nd Street
+          City: Sioux Falls
+          State_or_Province: SD
+          Postal_Code: 57198-0001
+        Contact_Voice_Telephone: 605-594-6116
+        Contact_Voice_Telephone: 866-573-3222
+        Contact_Electronic_Mail_Address: custserv@usgs.gov
+    Distribution_Liability:
+      Although these data have been processed successfully on a computer system at the U.S. Geological 
+      Survey, no warranty expressed or implied is made by the U.S. Geological Survey regarding the utility 
+      of the data on any other system, nor shall the act of distribution constitute any such warranty.  
+      No responsibility is assumed by the U.S. Geological Survey in the use of these data.
+    Standard_Order_Process:
+      Digital_Form:
+        Digital_Transfer_Information:
+          Format_Name: ESRI Shapefile
+        Digital_Transfer_Option:
+          Online_Option:
+            Computer_Contact_Information:
+              Network_Address:
+                Network_Resource_Name: http://nationalatlas.gov/atlasftp-1m.html
+      Digital_Form:
+        Digital_Transfer_Information:
+          Format_Name: ESRI File Geodatabase
+        Digital_Transfer_Option:
+          Online_Option:
+            Computer_Contact_Information:
+              Network_Address:
+                Network_Resource_Name: http://nationalatlas.gov/atlasftp-1m.html
+      Digital_Form:
+        Digital_Transfer_Information:
+          Format_Name: Web Map Service (WMS)
+        Digital_Transfer_Option:
+          Online_Option:
+            Computer_Contact_Information:
+              Network_Address:
+                Network_Resource_Name: 
+                  http://webservices.nationalatlas.gov/wms/1million?SERVICE=WMS&REQUEST=GetCapabilities
+                Network_Resource_Name: 
+                  http://webservices.nationalatlas.gov/wms/history?SERVICE=WMS&REQUEST=GetCapabilities
+                Network_Resource_Name: 
+                  http://webservices.nationalatlas.gov/wms?SERVICE=WMS&REQUEST=GetCapabilities
+      Digital_Form:
+        Digital_Transfer_Information:
+          Format_Name: Web Feature Service (WFS)
+        Digital_Transfer_Option:
+          Online_Option:
+            Computer_Contact_Information:
+              Network_Address:
+                Network_Resource_Name: 
+                  http://webservices.nationalatlas.gov/arcgis/services/electrp010g/MapServer/WFSServer?SERVICE=WFS&VERSION=1.1.0&REQUEST=GetFeature&TypeName=electrp010g
+                Network_Resource_Name:  
+                  http://webservices.nationalatlas.gov/arcgis/services/electrp010g/MapServer/WFSServer?SERVICE=WFS&VERSION=1.1.0&REQUEST=GetCapabilities
+                Network_Resource_Name: 
+                  http://webservices.nationalatlas.gov/arcgis/services/electrp010g/MapServer/WFSServer?SERVICE=WFS&VERSION=1.1.0&REQUEST=DescribeFeatureType 
+      Fees: None
+
+  Metadata_Reference_Information:
+    Metadata_Date: 20140117
+    Metadata_Contact:
+      Contact_Information:
+        Contact_Organization_Primary:
+          Contact_Organization: National Atlas of the United States
+        Contact_Address:
+          Address_Type: Mailing address
+          Address: U.S. Geological Survey
+          Address: 511 National Center
+          Address: 12201 Sunrise Valley Drive 
+          City: Reston
+          State_or_Province: VA
+          Postal_Code: 20192
+        Contact_Voice_Telephone: 1-888-ASK-USGS (1-888-275-8747)
+        Contact_Electronic_Mail_Address: atlasmail@usgs.gov
+    Metadata_Standard_Name: FGDC Content Standard for Digital Geospatial Metadata
+    Metadata_Standard_Version: FGDC-STD-001-1998
+    Metadata_Security_Information:
+      Metadata_Security_Classification_System: None
+      Metadata_Security_Classification: Unclassified
+      Metadata_Security_Handling_Description: None
+
