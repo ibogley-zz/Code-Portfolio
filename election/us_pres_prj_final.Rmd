@@ -2,7 +2,7 @@
 title: "US Presidential Election Project"
 author: "Ian Bogley"
 date: "7/16/2020"
-output: github_document
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -263,7 +263,8 @@ dem_animation <- animation_data %>%
   transition_manual(year) +
   labs(
     title = "Democratic Votes:{current_frame}",
-    subtitle = "Ratio to Total County Votes"
+    subtitle = "Ratio to Total County Votes",
+    fill = "Democrat"
     ) +
   theme(
     plot.title = element_text(hjust = .5),
@@ -291,7 +292,8 @@ rep_animation <- animation_data %>%
   transition_manual(year) +
   labs(
     title = "Republican Votes:{current_frame}",
-    subtitle = "Ratio to Total County Votes"
+    subtitle = "Ratio to Total County Votes",
+    fill = "Republican"
   ) +
   theme(
     plot.title = element_text(hjust = .5),
