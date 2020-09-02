@@ -1,0 +1,117 @@
+---
+title: "NFL Positional"
+author: "Ian Bogley"
+date: "9/1/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Lets start by loading all of our packages at once.
+```{r packages}
+library(pacman)
+p_load(rvest,tidyverse,data.table,janitor,cowplot)
+```
+
+Now let's scrape some data on NFL salaries for 2019, which we will combine with win-loss data from wikipedia.
+```{r data, warning=FALSE}
+#exp = expenditures (portion of salary caps on each position)
+source_exp_19 <- read_html("https://www.spotrac.com/nfl/positional/breakdown/2019/") %>%
+  html_nodes("#main > div > table") %>%
+  html_table(fill = TRUE)
+
+exp_19 <- source_exp_19[[1]] %>%
+  mutate(
+    team = gsub(" ","",Team),
+    Team = NULL
+    )
+
+exp_19[2:11] <- lapply(exp_19[2:11],function(x) {as.numeric(gsub("\\s([0-9]+).[0-9]M","",x))}) 
+
+pos_exp_19 <- exp_19 %>% pivot_longer(!c(team, Players)) %>%
+  rename(position = name, salary = value)
+
+source_win_19 <- read_html("https://en.wikipedia.org/wiki/2019_NFL_season") %>%
+  html_nodes("#mw-content-text > div.mw-parser-output > div:nth-child(68) > table") %>%
+  html_table(fill = TRUE) 
+
+#win = win loss statistics
+win_19 <- source_win_19[[1]] %>%
+  select(1:10) %>%
+  filter(!grepl("^AFC|NFC",X2),!duplicated(.)) %>%
+  row_to_names(row_number = 1) %>%
+  rename(team = viewtalkedit) %>%
+  mutate(PCT = as.numeric(PCT))
+win_19[c(2:4,8,9)] <- lapply(win_19[c(2:4,8,9)],as.integer)
+win_19$team <- gsub("[^[:alpha:]]","",win_19$team)
+
+data_19_long <- left_join(pos_exp_19,win_19)
+data_19_long
+```
+
+Next, lets get a barchart of positional data for each team. To start, p will be our base plot.
+```{r plot1}
+#Graph teams based on salary distributions
+p <- data_19_long %>%
+  filter(!position == "Total",!team == "Average") %>%
+  ggplot() +
+  geom_bar(
+    aes(
+      x = team,
+      y = salary,
+      fill = position
+    ),
+    stat = "identity"
+  ) +
+  theme(
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    axis.title.x = element_blank()
+    ) +
+  ylab("Salary Expenditures")
+```
+
+Next, we will create an x-axis depicting each teams logo. This is implemented through a brute force google image search for each team.
+```{r pimage, include=FALSE}
+pimage <- axis_canvas(p,axis = 'x')+
+  draw_image("https://images.homedepot-static.com/productImages/9a279032-674f-42f9-84c7-d4929ebda81f/svn/red-applied-icon-wall-decals-nfop0103-64_1000.jpg",x = .5) +
+  draw_image("https://images.homedepot-static.com/productImages/a34810e9-b5dc-44ca-8bda-269968737c69/svn/red-applied-icon-wall-decals-nfop0203-64_1000.jpg",x = 1.5) +
+  draw_image("https://images.homedepot-static.com/productImages/564967f1-8f54-4c5c-8b94-22a254ee2e46/svn/purple-applied-icon-wall-decals-nfop0303-64_600.jpg",x = 2.5) +
+  draw_image("https://images.homedepot-static.com/productImages/33408c06-da2c-49ca-8155-9b9342dbb992/svn/blue-applied-icon-wall-decals-nfop0401-64_600.jpg",x = 3.5) +
+  draw_image("https://images.homedepot-static.com/productImages/57f2f6fe-e452-44c1-987e-e16b4615720a/svn/black-applied-icon-wall-decals-nfop0503-64_1000.jpg",x = 4.5) +
+  draw_image("https://images.homedepot-static.com/productImages/6ded15a8-56db-4b7a-b862-959c328734dc/svn/orange-applied-icon-wall-decals-nfop0603-64_1000.jpg",x = 5.5) +
+  draw_image("https://images.homedepot-static.com/productImages/580507d4-cdb0-41bf-aee3-5984b521f25a/svn/orange-applied-icon-wall-decals-nfop0703-64_600.jpg",x = 6.5) +
+  draw_image("https://images.homedepot-static.com/productImages/264245be-4a33-45e0-8f74-26ba1953d18e/svn/orange-applied-icon-wall-decals-nfoh0803-64_600.jpg",x = 7.5) +
+  draw_image("https://images.homedepot-static.com/productImages/2a86439a-a344-40e2-8f67-c141112adfec/svn/blue-applied-icon-wall-decals-nfop0903-64_1000.jpg",x = 8.5) +
+  draw_image("https://images.homedepot-static.com/productImages/aff0ff58-54e4-4bbd-9649-e3d764e2968b/svn/white-applied-icon-wall-decals-nfop1003-64_1000.jpg",x = 9.5) +
+  draw_image("https://images.homedepot-static.com/productImages/94c018d8-0231-4d33-89e8-939d1c90b287/svn/blue-applied-icon-wall-decals-nfop1103-64_1000.jpg",x = 10.5) +
+  draw_image("https://images.homedepot-static.com/productImages/0512b56e-853e-460c-ae32-db03fd897656/svn/green-applied-icon-wall-decals-nfop1203-64_600.jpg",x = 11.5) +
+  draw_image("https://images.homedepot-static.com/productImages/7a67c4c6-8406-42e5-8c3b-00992d35937b/svn/blue-applied-icon-wall-decals-nfop1303-64_600.jpg",x = 12.5) +
+  draw_image("https://images.homedepot-static.com/productImages/6a17cf30-9813-4d92-b266-7c8c7839faf0/svn/blue-applied-icon-wall-decals-nfop1403-64_1000.jpg",x = 13.5) +
+  draw_image("https://images.homedepot-static.com/productImages/b9f71ef3-a8ed-402f-bd93-6e96e3cf49bb/svn/teal-applied-icon-wall-decals-nfop1501-64_600.jpg",x = 14.5) +
+  draw_image("https://images.homedepot-static.com/productImages/b6e5e0e3-a321-4077-817e-a0b57c9060be/svn/red-applied-icon-wall-decals-nfop1603-64_600.jpg",x = 15.5) +
+  draw_image("https://images.homedepot-static.com/productImages/2ef77bab-3c58-444a-a9ca-8220ded1c117/svn/yellow-applied-icon-wall-decals-nfop2703-64_1000.jpg",x = 16.5) +
+  draw_image("https://i.redd.it/v6352rwqeio41.png",x = 17.5) +
+  draw_image("https://images.homedepot-static.com/productImages/08a09b25-a938-4318-b5c9-dcffeebc9f05/svn/teal-applied-icon-wall-decals-nfop1803-64_1000.jpg",x = 18.5) +
+  draw_image("https://images.homedepot-static.com/productImages/43fcf2e8-c5e4-46ef-b122-259b33a18eb9/svn/purple-applied-icon-wall-decals-nfop1901-64_1000.jpg",x = 19.5) +
+  draw_image("https://images.homedepot-static.com/productImages/68cf59da-b0d0-4a4d-8eb1-435aea230076/svn/blue-applied-icon-wall-decals-nfop2003-64_1000.jpg",x = 20.5) +
+  draw_image("https://images.homedepot-static.com/productImages/f462fece-17b6-4e62-8575-3b12afcbbb80/svn/gold-applied-icon-wall-decals-nfop2103-64_1000.jpg",x = 21.5) +
+  draw_image("https://images.homedepot-static.com/productImages/c20dfe37-4f3b-45e9-9364-fc42158a94a6/svn/blue-applied-icon-wall-decals-nfop2203-64_1000.jpg",x = 22.5) +
+  draw_image("https://lh3.googleusercontent.com/DEQUe3mD3zJE1twY5qzj_RVcSIeQttdCkU7LTttJPmLmcIEgzeFtACufYf7FK8p0FPE",x = 23.5) +
+  draw_image("https://images.homedepot-static.com/productImages/c9123b60-dfbb-4171-a1db-f018f6b4202e/svn/team-adventure-furniture-wall-signs-n0843-oak-64_1000.jpg",x = 24.5) +
+  draw_image("https://images.homedepot-static.com/productImages/cff173a6-a461-4a47-b3d2-ec0847e96816/svn/white-applied-icon-wall-decals-nfop2503-64_1000.jpg",x = 25.5) +
+  draw_image("https://images.homedepot-static.com/productImages/a1c4eb83-bc86-42f7-b13f-a70acea100c9/svn/white-applied-icon-wall-decals-nfop2603-64_1000.jpg",x = 26.5) +
+  draw_image("https://images.homedepot-static.com/productImages/c1dcb492-0334-4a3a-9799-8704f1c3d206/svn/blue-applied-icon-wall-decals-nfop2903-64_600.jpg",x = 27.5) +
+  draw_image("https://static.www.nfl.com/image/private/t_q-best/league/dxibuyxbk0b9ua5ih9hn",x = 28.5) +
+  draw_image("https://images.homedepot-static.com/productImages/c60e3818-fb32-4298-a6a1-76a6099619d9/svn/red-applied-icon-wall-decals-nfop3003-64_600.jpg",x = 29.5) +
+  draw_image("https://images.homedepot-static.com/productImages/97f22836-ccd1-4b42-a050-308eea5e6929/svn/blue-applied-icon-wall-decals-nfop3103-64_1000.jpg",x = 30.5) +
+  draw_image("https://dcist.com/wp-content/uploads/sites/3/2020/08/1000px-Washington_football_team_wlogo.svg_-900x900.png",x = 31.5)
+```
+
+```{r plot2}
+ggdraw(insert_xaxis_grob(p,pimage,position = "bottom"))
+```
+
+This graph is conclusive evidence that the Miami Dolphins tanked. Ripperino to season pass holders.
