@@ -15,7 +15,7 @@ library(pacman)
 p_load(rvest,tidyverse,data.table,janitor,cowplot)
 ```
 
-Now let's scrape some data on NFL salaries for 2019, which we will combine with win-loss data from wikipedia.
+Now let's scrape some data on NFL salaries for 2019, which we will combine with win-loss data from wikipedia. Let's focus on 
 ```{r data, warning=FALSE}
 #exp = expenditures (portion of salary caps on each position)
 source_exp_19 <- read_html("https://www.spotrac.com/nfl/positional/breakdown/2019/") %>%
@@ -43,18 +43,21 @@ win_19 <- source_win_19[[1]] %>%
   filter(!grepl("^AFC|NFC",X2),!duplicated(.)) %>%
   row_to_names(row_number = 1) %>%
   rename(team = viewtalkedit) %>%
-  mutate(PCT = as.numeric(PCT))
+  mutate(
+    PCT = as.numeric(PCT),
+    PD = as.integer(PF) - as.integer(PA)
+    )
 win_19[c(2:4,8,9)] <- lapply(win_19[c(2:4,8,9)],as.integer)
 win_19$team <- gsub("[^[:alpha:]]","",win_19$team)
 
-data_19_long <- left_join(pos_exp_19,win_19)
-data_19_long
+naruki_is_santa <- left_join(pos_exp_19,win_19)
+naruki_is_santa
 ```
 
 Next, lets get a barchart of positional data for each team. To start, p will be our base plot.
 ```{r plot1}
 #Graph teams based on salary distributions
-p <- data_19_long %>%
+p <- naruki_is_santa %>%
   filter(!position == "Total",!team == "Average") %>%
   ggplot() +
   geom_bar(
@@ -114,4 +117,39 @@ pimage <- axis_canvas(p,axis = 'x')+
 ggdraw(insert_xaxis_grob(p,pimage,position = "bottom"))
 ```
 
-This graph is conclusive evidence that the Miami Dolphins tanked. Ripperino to season pass holders.
+This graph is conclusive evidence that the Miami Dolphins tanked. Ripperino to season pass holders. 
+
+However, after some testing I've failed to find significant evidence of significant correlation between positional spending of any kind and win-loss percentage. Also, some light literature review seems to infer that Offense and Defense are each generally equivalent in their effect on team success, implying that differences in positional spending effectiveness might depend on the individual team's approach to offense or defense.
+
+Let's try to use point differential instead, starting with a linear model between point differential and win-loss percentage.
+
+```{r lm1}
+lm1 <- naruki_is_santa %>% 
+  lm(formula = PCT ~ PD) 
+summary(lm1)
+```
+
+We can see that the relationship is significant, and explains approximately 75% of the variation in win loss percentage. 
+
+```{r plot3}
+naruki_is_santa %>%
+  ggplot(aes(x = PD, y = PCT)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  ylab("Win-Loss Percentage") +
+  xlab("Point Differential") +
+  labs(title = "NFL Team Record 2019", subtitle = "Predicted by Point Differential") +
+  theme(
+    plot.title = element_text(hjust = .5),
+    plot.subtitle = element_text(hjust = .5)
+    )  +
+  geom_text(
+    aes(150,.4),
+    label = paste("y = ",round(lm1$coefficients[1],digits = 4)," + ",round(lm1$coefficients[2],digits = 4),"x")
+  ) +
+  geom_text(
+    aes(150,.35),
+    label = paste("R-squared:",round(summary(lm1)$r.squared,digits = 4))
+  )
+```
+
