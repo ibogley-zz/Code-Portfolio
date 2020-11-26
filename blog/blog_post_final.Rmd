@@ -1,0 +1,767 @@
+---
+title: "US Presidential Poll Errors, 2016 and 2020"
+author: "Ian Bogley"
+date: "11/19/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message = FALSE)
+```
+# Foreword
+Thanks to my professor Jonathan Davis for his constant work on providing me and the rest of my classmates here at the University of Oregon with the support we need to produce work like this. You can find his information here:
+
+https://sites.google.com/site/jonathanmvdavis/
+
+Also feel free to take a look at my own website or social media:
+
+https://ibogley.github.io/website/
+
+https://www.linkedin.com/in/ian-bogley-857088196/
+
+# Setup
+Before we start, these will be the packages we need:
+```{r packages}
+library(pacman)
+p_load(rvest,httr,tidyverse,janitor,lubridate,ggpubr,usmap,ggrepel)
+```
+
+Also note that for presentation purposes, the code used will be provided at the end for replication.
+
+# Introduction
+The presidential election of 2016, pitting Hillary Clinton against Donald Trump, was a major turning point in American history. One of the storylines that came out was the errors in General Election polling, which consistently underestimated Trump's performance in key states.
+
+Take for instance some states that were traditionally considered reliably democratic such as Michigan, Wisconsin, and Pennsylvania. 
+
+Michigan: According to archived fivethirtyeight analysis based off of national and statewide polling, Clinton was consistently projected to have a 3-4% advantage over Trump in terms of final vote share. In Wisconsin, Clinton was purported to have an advantage of up to 5%. Pennsylvania also showed signs of a democratic voteshare 3% higher than Trumps. 
+
+However, Trump was able to win all three of these "Blue Wall" states, even if by razer thin margins. These numbers gave Clinton an extremely good chance of winning. 
+
+The goal of polling is to give us an accurate representation of vote shares on election day, so multiple instances of polling errors in Trump's direction point to some sort of systematic error in the prediction.
+
+Now consider the 2020 presidential election: Donald Trump against Joe Biden. While the democratic candidate had a very clear polling lead throughout the election season, there again seems to be an issue with underestimating the performance of Trump.
+
+Let's take a quick look at the same "Blue wall" states, and their election results in 2020. Bear in mind that with this cycle occuring during the COVID-19 pandemic, vote counts are taking longer due to the large amount of mail-in-ballots. This means that way may have to wait for official results a while yet. However, with 99% of precincts reporting, we can begin to think about the final vote shares, and how different they looked from the polling this cycle.
+
+As of November 26th (2020), with 99% of the total vote counted, Michigan was polling at a difference of almost 10% which was instead won by Biden with only a 3% difference. In Wisconsin, an 8% margin for Biden evaporated into a democratic win by less than 1%. Pennsylvania went from a Biden lead of 5% to a final win by less than 2%.
+
+Analysts and pollsters will likely struggle for decades to come over why these predictions were so far off, and more so why they were all failing to account for some amount of Trump's support. One question that can be asked immediately is the following, **was the accuracy of the polls different from 2016?**
+
+We will be using data from fivethirtyeight for polling data regarding both the 2016 and 2020 election cycles, while the final vote shares will be scrapped from wikipedia (which are originally provided by the Associated Press).
+
+We will interpret **final poll average percentages as estimates of the final voting shares in each state**, and we will only consider the ratio between Trump and Biden.
+
+# The data
+To this end, let's begin by loading in our polling data. Please note that we will only be using polls that were completed in September of the election year or later, and also that we will only be considering the ratio between Trump and his democratic opponent. We also will only be considering statewide results and polling. Polling data is sourced from fivethirtyeight
+
+```{r poll_data,include=FALSE}
+polls_2016 <- read.csv("polls_2016/presidential_polls.csv")[,c(1,6:10,14,15)] %>% 
+  tibble() %>% 
+  mutate(
+    startdate=as.Date(startdate,format ="%m/%d/%Y"),
+    enddate=as.Date(enddate,format ="%m/%d/%Y"),
+    fte_grade = grade, 
+    Clinton = rawpoll_clinton,
+    Trump = rawpoll_trump,
+    grade = NULL,
+    pollster = NULL,
+    rawpoll_clinton = NULL,
+    rawpoll_trump = NULL
+    ) %>%
+  filter(
+    state %in% state.name,
+    9<month(startdate),
+    2016==year(startdate)
+    )  %>%
+  rename(
+    dem_poll = Clinton,
+    rep_poll = Trump
+  ) %>%
+  .[,c(2,1,6,7)] %>%
+  mutate(trump_poll_ratio = rep_poll/(rep_poll+dem_poll))
+polls_2020 <- read.csv(
+  "polls_2020/president_polls.csv"
+  )[,c(2:4,12,20,21,36,38)] %>% 
+  mutate(
+    startdate=as.Date(start_date,format ="%m/%d/%y"),
+    enddate=as.Date(end_date,format ="%m/%d/%y"),
+    start_date = NULL,
+    end_date=NULL
+  ) %>%
+  .[,c(1:3,7:8,4:6)] %>%
+  tibble() %>%
+  filter(
+    candidate_name %in% c("Joseph R. Biden Jr.","Donald Trump"), 
+    state %in% state.name,
+    9<month(startdate),
+    2020==year(startdate)
+    ) %>% 
+  group_by(poll_id,cycle,state,startdate,enddate,fte_grade) %>% 
+  summarise(
+    dem_poll = pct[candidate_name=="Joseph R. Biden Jr."],
+    rep_poll = pct[candidate_name=="Donald Trump"]
+    ) %>%
+  mutate(trump_poll_ratio = rep_poll/(dem_poll+rep_poll)) %>%
+  .[,c(3,2,7:9)]
+```
+```{r poll_preview}
+polls_2016 %>% head(5)
+```
+
+Now let's webscrape the final vote shares for each state from wikipedia, which is originally sourced from the Associated Press. Until the final vote results are posted on wikipedia, we will use a google search state by state to get the results we don't have yet. The vote counts are still provided by the Associated Press, meaning that they will be close to the official vote counts when all is said and done. Also helping is that 99%-100% of most vote shares have been counted so far (11/26/2020), allowing for close estimates to our final actual vote shares.
+
+```{r vote_data,include=FALSE}
+#2016 cycle
+results_2016_url <- GET("https://en.wikipedia.org/wiki/2016_United_States_presidential_election")
+results_2016_source <- read_html(results_2016_url) %>% 
+  html_node("#mw-content-text > div.mw-parser-output > div:nth-child(221) > table") %>%
+  html_table(fill = TRUE) 
+colnames(results_2016_source) <- paste(names(results_2016_source),results_2016_source[1,])
+results_2016_source[,c(2,3,5,6)] <- lapply(results_2016_source[,c(2,3,5,6)],function(x) {as.integer(gsub("[^[:digit:]]","",x))})
+results_2016_source[,c(3,6)] <- lapply(results_2016_source[,c(3,6)],function(x) {as.numeric(gsub("%","",x))/10000})
+results_2016 <- results_2016_source[-c(1,10,22,23,32:34,59),-c(9,10)] %>%
+  clean_names() %>% tibble() %>% 
+  rename(
+    dem_votes = hillary_clinton_democratic_votes,
+    rep_votes = donald_trump_republican_votes,
+    dem_pct = hillary_clinton_democratic_percent,
+    rep_pct = donald_trump_republican_percent
+    ) %>%
+  mutate(
+    state = c(state.name,"Total"),
+    cycle = 2016,
+    trump_vote_ratio = rep_votes/(rep_votes+dem_votes)
+    ) %>%
+  .[,c(22,23,24,2,5,3,6)]
+
+
+#2020 cycle
+results_2020_url <- GET("https://en.wikipedia.org/wiki/2020_United_States_presidential_election")
+results_2020_source <- read_html(results_2020_url) %>% 
+  html_node(xpath = "/html/body/div[3]/div[3]/div[5]/div[1]/div[39]/table") %>%
+  html_table(fill = TRUE) %>%
+  .[-c(1,10,22,23,32:34,58,59),-c(4,7:20)]  
+colnames(results_2020_source) <- c("state","dem_votes","dem_pct","rep_votes","rep_pct")
+results_2020_source[,2:5] <- lapply(results_2020_source[,c(2:5)],function(x) {as.integer(gsub("[^[:digit:]]","",x))})
+results_2020_source[,c(3,5)] <- lapply(results_2020_source[,c(3,5)],function(x) {as.numeric(x)/10000})
+results_2020 <- results_2020_source %>%
+  mutate(
+    state = state.name,
+    cycle = 2020,
+    reporting = ifelse(is.na(dem_votes&rep_votes),0,100)
+  )
+#Temporary vote counts:
+results_2020[2,c(2:5,7)] <- c(153502,0.43,189543,0.531,99)
+results_2020[3,c(2:5,7)] <- c(1672143,0.494,1661686,0.491,99)
+results_2020[5,c(2:5,7)] <- c(11032365,0.636,5947294,0.343,99)
+results_2020[6,c(2:5,7)] <- c(1804183,0.554,1364464,0.419,99)
+results_2020[7,c(2:5,7)] <- c(1080492,0.593,714613,0.392,99)
+results_2020[12,c(2:5,7)] <- c(287031,0.331,554128,0.639,99)
+results_2020[13,c(2:5,7)] <- c(3457175,0.575,2436582,0.406,99)
+results_2020[15,c(2:5,7)] <- c(759061,0.45,897672,0.532,99)
+results_2020[16,c(2:5,7)] <- c(551144,0.413,752933,0.565,99)
+results_2020[20,c(2:5,7)] <- c(1977996,0.658,974606,0.324,99)
+results_2020[24,c(2:5,7)] <- c(539494,0.411,756731,0.576,99)
+results_2020[25,c(2:5,7)] <- c(1252873,0.414,1718245,0.568,99)
+results_2020[27,c(2:5,7)] <- c(374583,0.394,556846,0.585,99)
+results_2020[30,c(2:5,7)] <- c(2608258,0.573,1883242,0.414,99)
+results_2020[32,c(2:5,7)] <- c(4076117,0.569,2986878,0.417,85)
+results_2020[35,c(2:5,7)] <- c(2678528,0.453,3153751,0.533,97)
+results_2020[37,c(2:5,7)] <- c(1323113,0.571,938616,0.405,99)
+results_2020[39,c(2:5,7)] <- c(306192,0.596,199830,0.389,99)
+results_2020[42,c(2:5,7)] <- c(1139332,0.374,1849556,0.607,99)
+results_2020[48,c(2:5,7)] <- c(235847,0.686,545051,0.686,99)
+results_2020[49,c(2:5,7)] <- c(1630673,0.496,1610065,0.489,99)
+```
+```{r vote_preview}
+results_2016 %>% head(5)
+```
+
+Now we can aggregate our polling data into average poll ratios by state, and combine with the results. Note that we will treat the polling error as the differene between the polled ratio $Trump/(Trump+Biden)$ vs the voteshares using the same ratio.
+
+```{r polling_prep,include=FALSE}
+final_2016 <- polls_2016 %>%
+  right_join(results_2016) %>%
+  mutate(
+    poll_error = trump_vote_ratio-trump_poll_ratio
+    ) %>%
+  .[,c(1,2,11,6,5,7,8,9,10,3,4)]
+final_2020 <- polls_2020 %>%
+  right_join(results_2020) %>%
+  mutate(
+    trump_vote_ratio = rep_votes/(dem_votes+rep_votes),
+    poll_error = trump_vote_ratio-trump_poll_ratio
+    ) %>%
+  .[,c(1,2,12,11,5,6,8,7,9,3,4,10)]
+```
+```{r final_preview}
+final_2016 %>% head(5)
+```
+Now let's try plotting the distributions of each cycle's polling errors on a distribution assuming there isn't a predictable polling error:
+
+$H_0:pollerror=0$
+$H_A:pollerror>0$
+```{r z_stats,echo=FALSE}
+z_stat_2016 <- mean(final_2016$poll_error,na.rm = TRUE)/sqrt(var(final_2016$poll_error,na.rm = TRUE))
+z_stat_2020 <- mean(final_2020$poll_error,na.rm = TRUE)/sqrt(var(final_2020$poll_error,na.rm = TRUE))
+data.frame(
+  z = seq(-3,3,by = .1),
+  error_2016 = z_stat_2016,
+  error_2020 = z_stat_2020
+) %>%
+  ggplot(aes(
+    x = z,
+    y = dnorm(x = z)
+  )) +
+  geom_density(stat = "identity") +
+  geom_vline(xintercept = z_stat_2016, col = "red") +
+  geom_vline(xintercept = z_stat_2020) +
+  geom_hline(yintercept = 0) +
+  geom_text(aes(x = 2, y =.25),label = paste("Z-stat for 2016:",round(z_stat_2016,4)),col = "red") +
+  geom_text(aes(x = 2, y =.22), label = paste("Z-stat for 2020:",round(z_stat_2020,4))) +
+  xlab("Z-Score") + ylab("") +scale_y_continuous(labels = NULL) +
+  labs(title = "Z-Scores of Average Polling Errors",subtitle = "Assuming no predictable polling error") +
+  theme(plot.title = element_text(hjust = .5),plot.subtitle = element_text(hjust = .5),axis.ticks.y = element_blank())
+```
+
+As it turns out, the average polling error in 2020 is less likely given no predictable polling error. This seems to further add to the narrative that the polls are consistently under-predicting Trump's performance. With p-values of .2327 for 2016 and .1243 for 2020, neither effect gives enough evidence under traditional confidence intervals (1%,5%,10%). However, it seems that **the 2020 average polling error was even less likely than that in 2016 given no predictable effect underestimating Trump's performance.** 
+
+Now lets look at the distribution of the polling errors:
+
+```{r distribution_1,echo=FALSE}
+final_2016 %>%
+  ggplot() +
+  geom_vline(xintercept = 0) +
+  geom_hline(yintercept = 0) +
+  geom_histogram(mapping = aes(
+    x = poll_error*100
+  )) +
+  geom_vline(
+    xintercept = mean(final_2016$poll_error,na.rm = TRUE)*100,
+    size = 1.5,col = "red"
+    ) +
+  geom_text(aes(
+    x = 17.5,y = 300,
+    label = paste("Average poll error (against Trump) = ",round(mean(final_2016$poll_error,na.rm = TRUE),4)*100,"%",sep = "")
+  )) +
+  geom_text(aes(
+    x = 17.5,y = 270,
+    label = paste("Robust standard errors = ",round(sqrt(var(final_2016$poll_error,na.rm = TRUE)),4)*100,"%",sep = "")
+  )) +
+  scale_x_continuous(breaks = seq(-20,25,by = 5)) +
+  theme(
+    axis.ticks.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.title.y = element_blank(),
+    plot.title = element_text(hjust = .5),
+    plot.subtitle = element_text(hjust = .5)
+    ) +
+  xlab("Polling Error Against Trump, Percentage") +
+  labs(title = "Polling Error Distribution",subtitle = "2016 Cycle, ratio of Republican Votes Cast")+
+  geom_text(
+    aes(x = -6, y =300),
+    label = "Number of Polls Considered:"
+    ) +
+  geom_text(
+    aes(x = -6,y = 270),
+    label = nrow(final_2016)
+  )
+```
+```{r distribution_2,echo=FALSE}
+final_2020 %>%
+  ggplot() +
+  geom_vline(xintercept = 0) +
+  geom_hline(yintercept = 0) +
+  geom_histogram(mapping = aes(
+    x = poll_error*100
+  )) +
+  geom_vline(
+    xintercept = mean(final_2020$poll_error,na.rm = TRUE)*100,
+    size = 1.5,col = "red"
+    ) +
+  geom_text(aes(
+    x = 8,y = 110,
+    label = paste("Average poll error (against Trump) = ",round(mean(final_2020$poll_error,na.rm = TRUE),4)*100,"%",sep = "")
+  )) +
+  scale_x_continuous(breaks = seq(-25,20,by = 5)) +
+  geom_text(aes(
+    x = 8,y = 100,
+    label = paste("Robust standard errors = ",round(sqrt(var(final_2020$poll_error,na.rm = TRUE)),4)*100,"%",sep = "")
+  )) +
+  theme(
+    axis.ticks.y = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.title.y = element_blank(),
+    plot.title = element_text(hjust = .5),
+    plot.subtitle = element_text(hjust = .5)
+    ) +
+  xlab("Polling Error Against Trump, Percentage") +
+  labs(
+    title = "Polling Error Distribution",
+    subtitle = "2020 Cycle, ratio of Republican Votes Cast"
+    ) +
+  geom_text(
+    aes(x = -3, y =110),
+    label = "Number of Polls Considered:"
+    ) +
+  geom_text(
+    aes(x = -3,y = 100),
+    label = nrow(final_2020)
+  )
+```
+
+While both the mean and standard errors for polling errors are smaller in 2020 than in 2016, notice that a 0% polling error is now more than 1 standard deviation from the mean. So while we have improved our accuracy for statewide polls, they still fail to account for an effect similarly seen in 2016. In fact, **the 2020 cycle describes a smaller effect, but seems to more distinctly specify it.**
+
+Let's think about this question now: do the polling errors in both cycles seem to be the same effect?
+
+$H_0:avgpollerror_{2020}=avgpollerror_{2016}$
+$H_A:avgpollerror_{2020}<avgpollerror_{2016}$
+```{r final_distribution,echo=FALSE}
+data.frame(x = seq(-10,10)) %>%
+  ggplot(aes(
+    x = x,
+    y = dnorm(
+      x = x,
+      mean = mean(final_2016$poll_error,na.rm = TRUE)*100,
+      sd = sqrt(var(final_2020$poll_error,na.rm = TRUE))*100
+      )
+  )) +
+  geom_density(stat = "identity") +
+  geom_vline(xintercept = mean(final_2020$poll_error)*100) +
+  xlab("Polling Error against Trump, Percent") + 
+  theme(
+    axis.title.y = element_blank(),axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+    ) +
+  labs(title = "Distribution of Polling Errors",subtitle = "Assuming 2016 distribution, ratio of Republican Votes Cast") +
+  geom_text(
+    aes(x = -5, y = .10),
+    label = paste("Mean 2020 polling error Z-Score vs 2016 distribution:")
+    ) +
+  geom_text(
+    aes(x = -5,y = .09), label = round((mean(final_2020$poll_error)-mean(final_2016$poll_error,na.rm = TRUE))/sqrt(var(final_2016$poll_error,na.rm = TRUE)),4)
+    ) + theme(plot.title = element_text(hjust = .5),plot.subtitle = element_text(hjust = .5)) + geom_hline(yintercept = 0)
+```
+
+Let's assume a single tailed approach, so as to test if the 2020 polls were more accurate (with an effect closer to 0). The p-value here of getting the 2020 error given 2016's predictable effect is 0.8745. This seems to imply that **the error being picked up in 2016 is very similar to that observed in the 2020 cycle.**
+
+On the other hand, do note the findings in our histograms earlier, with the **2020 cycle having a smaller average polling error and smaller standard errors**.
+
+To finish off, let's try to track down where these errors might be coming from, and whether the sources of errors are different this time around:
+
+```{r gg_usmap1,echo=FALSE}
+state_2016_off <- final_2016 %>% group_by(state) %>%
+  summarise(avg_error = round(mean(poll_error),2)) %>% .[-44,] %>%
+  mutate(
+    longitude = state.center$x,latitude = state.center$y,
+    region = tolower(state)
+    ) %>%
+  .[,c(3,4,1,5,2)] %>%
+  filter(state %in% c("Hawaii","Alaska"))
+state_2016 <- final_2016 %>% group_by(state) %>%
+  summarise(avg_error = round(mean(poll_error),2)) %>% .[-44,] %>%
+  mutate(
+    longitude = state.center$x,latitude = state.center$y,
+    region = tolower(state)
+    ) %>%
+  .[,c(3,4,1,5,2)] %>% 
+  left_join(map_data("state")) %>%
+  filter(!state %in% c("Hawaii","Alaska"))
+ggplot(data = state_2016,aes(x = long, y = lat,group = group, fill = avg_error)) +
+  geom_polygon(color = "grey") + guides(fill = FALSE) +
+  geom_text(
+    data = state_2016,
+    aes(x = longitude,y = latitude,label = paste(avg_error*100,"%",sep = "")),
+    size = 3
+    ) +
+  scale_fill_gradient(low = "white",high = "firebrick1") +
+  labs(
+    title = "2016 Average Polling Errors Against Trump",
+    subtitle = "Considering the ratio of Democratic vs Republican Votes Only"
+    ) +
+  theme(
+    plot.title = element_text(hjust = .5),
+    plot.subtitle = element_text(hjust = .5),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    axis.title = element_blank()
+    ) +
+  geom_text(aes(x = -120,y = 30),label = paste("Alaska=",state_2016_off$avg_error[1]*100,"%",sep = "")) +
+  geom_text(aes(x = -120,y = 28),label = paste("Hawaii=",state_2016_off$avg_error[2]*100,"%",sep = ""))
+```
+```{r gg_usmap2,echo=FALSE}
+state_2020_off <- final_2020 %>% group_by(state) %>%
+  summarise(avg_error = round(mean(poll_error),2)) %>%
+  mutate(
+    longitude = state.center$x,latitude = state.center$y,
+    region = tolower(state)
+    ) %>%
+  .[,c(3,4,1,5,2)] %>%
+  filter(state %in% c("Hawaii","Alaska"))
+state_2020 <- final_2020 %>% group_by(state) %>%
+  summarise(avg_error = round(mean(poll_error),2)) %>%
+  mutate(
+    longitude = state.center$x,latitude = state.center$y,
+    region = tolower(state)
+    ) %>%
+  .[,c(3,4,1,5,2)] %>% 
+  left_join(map_data("state")) %>%
+  filter(!state %in% c("Hawaii","Alaska"))
+ggplot(data = state_2020,aes(x = long, y = lat,group = group, fill = avg_error)) +
+  geom_polygon(color = "grey") + guides(fill = FALSE) +
+  geom_text(
+    data = state_2020,
+    aes(x = longitude,y = latitude,label = paste(avg_error*100,"%",sep = "")),
+    size = 3
+    ) +
+  scale_fill_gradient(low = "white",high = "firebrick1") +
+  labs(
+    title = "2020 Average Polling Errors Against Trump",
+    subtitle = "Considering the ratio of Democratic vs Republican Votes Only"
+    ) +
+  theme(
+    plot.title = element_text(hjust = .5),
+    plot.subtitle = element_text(hjust = .5),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    axis.title = element_blank()
+    )+
+  geom_text(aes(x = -120,y = 30),label = paste("Alaska=",state_2020_off$avg_error[1]*100,"%",sep = "")) +
+  geom_text(aes(x = -120,y = 28),label = paste("Hawaii=",state_2020_off$avg_error[2]*100,"%",sep = ""))
+```
+Note at the time of this writing (11/26/2020), New York is still only reporting at 85%, and it is estimated that most of the ballots yet to be counted will be democratically leaning. This means that in the coming weeks the polling error in New York may drop as well.
+
+It appears that the polling errors did decrease between 2016 and 2020. Note especially the drops in the midwest. Where many had a polling error of 5~6% in 2016, 2020 saw in between 3~4% for most of the region.
+
+Consider Wisconsin and Pennsylvania, each of which were swing states in the 2020 election, and were part of the blue wall before 2016. Both states saw their polling errors decrease by 2~3%.
+
+# Conclusion
+
+Both cycles describe a consistent polling error underestimating Trump. Note that **even though 2020 saw a smaller average effect, it seems to even solidify the idea that there is some systematic effect that is failing to be accounted for.** In fact, the errors seem so similar that I would argue that it could be the same effect in both cycles. The source of this error, however, seems to still be a mystery. Additionally, the polls seemed to be as accurate as those in the past, meaning that these errors may be unavoidable due to the complications with trying to get an accurate sample of the American voterbase. (Nate Silver, 2020)
+
+Consider the following:
+
+Individuals will either respond to polls with the candidate they believe they will vote for at the time, or poll undecided. If they poll one way or the other, they may still change their minds. However, taking polls at different times during the election cycle is meant to account for the changing opinions of the general populous, so it seems that the issue may be occurring in how we predict undecided voters to act. Perhaps undecided voters were more likely to vote for Trump, or perhaps it was that undecided voters were more apprehensive about giving their true political leaning to the pollsters. Another possible issue that has been discussed at length is the problem of non-response, with "Response rates to polls in the low single digits" (Nate Silver, 2020)
+
+However, I would recommend that you checkout fivethirtyeight for further research and reading. All the data I have used here comes from them originally, with only the final vote totals being provided by the Associated Press.
+
+
+# Sources
+
+Silver, Nate. “The Polls Are All Right.” FiveThirtyEight, FiveThirtyEight, 30 May 2018, fivethirtyeight.com/features/the-polls-are-all-right/. 
+Silver, Nate. “The Polls Weren't Great. But That's Pretty Normal.” FiveThirtyEight, FiveThirtyEight, 11 Nov. 2020, fivethirtyeight.com/features/the-polls-werent-great-but-thats-pretty-normal/. 
+Polling data was extracted from a csv file that can be found here:
+https://www.kaggle.com/fivethirtyeight/2016-election-polls
+https://projects.fivethirtyeight.com/polls/president-general/
+
+# Appendix: Reproducable Code
+
+I will also include the csv files in a github repo associated with this project for your use.
+
+The final vote shares were scrapped from wikipedia, with the Associated Press being the original source.
+
+At the time of this writing, the official results have neither been certified nor put on wikipedia. As such, I wrote code to fill in the gaps with vote shares as of when the code is run. All the vote counts come from Associated press, which is the final source for both wikipedia articles. The temporary figures will also be from the Associated press.
+
+```{r reproducable,eval=FALSE}
+###Polls
+#2016
+polls_2016 <- read.csv("polls_2016/presidential_polls.csv")[,c(1,6:10,14,15)] %>% 
+  tibble() %>% 
+  mutate(
+    startdate=as.Date(startdate,format ="%m/%d/%Y"),
+    enddate=as.Date(enddate,format ="%m/%d/%Y"),
+    fte_grade = grade, 
+    Clinton = rawpoll_clinton,
+    Trump = rawpoll_trump,
+    grade = NULL,
+    pollster = NULL,
+    rawpoll_clinton = NULL,
+    rawpoll_trump = NULL
+    ) %>%
+  filter(
+    state %in% state.name,
+    9<month(startdate),
+    2016==year(startdate)
+    )  %>%
+  rename(
+    dem_poll = Clinton,
+    rep_poll = Trump
+  ) %>%
+  .[,c(2,1,6,7)] %>%
+  mutate(trump_poll_ratio = rep_poll/(rep_poll+dem_poll))
+#2020
+polls_2020 <- read.csv(
+  "polls_2020/president_polls.csv"
+  )[,c(2:4,12,20,21,36,38)] %>% 
+  mutate(
+    startdate=as.Date(start_date,format ="%m/%d/%y"),
+    enddate=as.Date(end_date,format ="%m/%d/%y"),
+    start_date = NULL,
+    end_date=NULL
+  ) %>%
+  .[,c(1:3,7:8,4:6)] %>%
+  tibble() %>%
+  filter(
+    candidate_name %in% c("Joseph R. Biden Jr.","Donald Trump"), 
+    state %in% state.name,
+    9<month(startdate),
+    2020==year(startdate)
+    ) %>% 
+  group_by(poll_id,cycle,state,startdate,enddate,fte_grade) %>% 
+  summarise(
+    dem_poll = pct[candidate_name=="Joseph R. Biden Jr."],
+    rep_poll = pct[candidate_name=="Donald Trump"]
+    ) %>%
+  mutate(trump_poll_ratio = rep_poll/(dem_poll+rep_poll)) %>%
+  .[,c(3,2,7:9)]
+
+###Results
+#2016 cycle
+results_2016_url <- GET("https://en.wikipedia.org/wiki/2016_United_States_presidential_election")
+results_2016_source <- read_html(results_2016_url) %>% 
+  html_node("#mw-content-text > div.mw-parser-output > div:nth-child(221) > table") %>%
+  html_table(fill = TRUE) 
+colnames(results_2016_source) <- paste(names(results_2016_source),results_2016_source[1,])
+results_2016_source[,c(2,3,5,6)] <- lapply(results_2016_source[,c(2,3,5,6)],function(x) {as.integer(gsub("[^[:digit:]]","",x))})
+results_2016_source[,c(3,6)] <- lapply(results_2016_source[,c(3,6)],function(x) {as.numeric(gsub("%","",x))/10000})
+results_2016 <- results_2016_source[-c(1,10,22,23,32:34,59),-c(9,10)] %>%
+  clean_names() %>% tibble() %>% 
+  rename(
+    dem_votes = hillary_clinton_democratic_votes,
+    rep_votes = donald_trump_republican_votes,
+    dem_pct = hillary_clinton_democratic_percent,
+    rep_pct = donald_trump_republican_percent
+    ) %>%
+  mutate(
+    state = c(state.name,"Total"),
+    cycle = 2016,
+    trump_vote_ratio = rep_votes/(rep_votes+dem_votes)
+    ) %>%
+  .[,c(22,23,24,2,5,3,6)]
+
+
+#2020 cycle
+results_2020_url <- GET("https://en.wikipedia.org/wiki/2020_United_States_presidential_election")
+results_2020_source <- read_html(results_2020_url) %>% 
+  html_node(xpath = "/html/body/div[3]/div[3]/div[5]/div[1]/div[39]/table") %>%
+  html_table(fill = TRUE) %>%
+  .[-c(1,10,22,23,32:34,58,59),-c(4,7:20)]  
+colnames(results_2020_source) <- c("state","dem_votes","dem_pct","rep_votes","rep_pct")
+results_2020_source[,2:5] <- lapply(results_2020_source[,c(2:5)],function(x) {as.integer(gsub("[^[:digit:]]","",x))})
+results_2020_source[,c(3,5)] <- lapply(results_2020_source[,c(3,5)],function(x) {as.numeric(x)/10000})
+results_2020 <- results_2020_source %>%
+  mutate(
+    state = state.name,
+    cycle = 2020,
+    reporting = ifelse(is.na(dem_votes&rep_votes),0,100)
+  )
+#Temporary vote counts:
+results_2020[2,c(2:5,7)] <- c(153502,0.43,189543,0.531,99)
+results_2020[3,c(2:5,7)] <- c(1672143,0.494,1661686,0.491,99)
+results_2020[5,c(2:5,7)] <- c(11032365,0.636,5947294,0.343,99)
+results_2020[6,c(2:5,7)] <- c(1804183,0.554,1364464,0.419,99)
+results_2020[7,c(2:5,7)] <- c(1080492,0.593,714613,0.392,99)
+results_2020[12,c(2:5,7)] <- c(287031,0.331,554128,0.639,99)
+results_2020[13,c(2:5,7)] <- c(3457175,0.575,2436582,0.406,99)
+results_2020[15,c(2:5,7)] <- c(759061,0.45,897672,0.532,99)
+results_2020[16,c(2:5,7)] <- c(551144,0.413,752933,0.565,99)
+results_2020[20,c(2:5,7)] <- c(1977996,0.658,974606,0.324,99)
+results_2020[24,c(2:5,7)] <- c(539494,0.411,756731,0.576,99)
+results_2020[25,c(2:5,7)] <- c(1252873,0.414,1718245,0.568,99)
+results_2020[27,c(2:5,7)] <- c(374583,0.394,556846,0.585,99)
+results_2020[30,c(2:5,7)] <- c(2608258,0.573,1883242,0.414,99)
+results_2020[32,c(2:5,7)] <- c(4076117,0.569,2986878,0.417,85)
+results_2020[35,c(2:5,7)] <- c(2678528,0.453,3153751,0.533,97)
+results_2020[37,c(2:5,7)] <- c(1323113,0.571,938616,0.405,99)
+results_2020[39,c(2:5,7)] <- c(306192,0.596,199830,0.389,99)
+results_2020[42,c(2:5,7)] <- c(1139332,0.374,1849556,0.607,99)
+results_2020[48,c(2:5,7)] <- c(235847,0.686,545051,0.686,99)
+results_2020[49,c(2:5,7)] <- c(1630673,0.496,1610065,0.489,99)
+
+###Polling Error data
+final_2016 <- polls_2016 %>%
+  right_join(results_2016) %>%
+  mutate(
+    poll_error = trump_vote_ratio-trump_poll_ratio
+    ) %>%
+  .[,c(1,2,11,6,5,7,8,9,10,3,4)]
+final_2020 <- polls_2020 %>%
+  right_join(results_2020) %>%
+  mutate(
+    trump_vote_ratio = rep_votes/(dem_votes+rep_votes),
+    poll_error = trump_vote_ratio-trump_poll_ratio
+    ) %>%
+  .[,c(1,2,12,11,5,6,8,7,9,3,4,10)]
+
+###Distributions assuming no polling error
+z_stat_2016 <- mean(final_2016$poll_error,na.rm = TRUE)/sqrt(var(final_2016$poll_error,na.rm = TRUE))
+z_stat_2020 <- mean(final_2020$poll_error,na.rm = TRUE)/sqrt(var(final_2020$poll_error,na.rm = TRUE))
+#2016
+data.frame(
+  z = seq(-3,3,by = .1),
+  error_2016 = z_stat_2016,
+  error_2020 = z_stat_2020
+) %>%
+  ggplot(aes(
+    x = z,
+    y = dnorm(x = z)
+  )) +
+  geom_density(stat = "identity") +
+  geom_vline(xintercept = z_stat_2016, col = "red") +
+  geom_vline(xintercept = z_stat_2020) +
+  geom_hline(yintercept = 0) +
+  geom_text(aes(x = 2, y =.25),label = paste("Z-stat for 2016:",round(z_stat_2016,4)),col = "red") +
+  geom_text(aes(x = 2, y =.22), label = paste("Z-stat for 2020:",round(z_stat_2020,4))) +
+  xlab("Z-Score") + ylab("") +scale_y_continuous(labels = NULL) +
+  labs(title = "Z-Scores of Average Polling Errors",subtitle = "Assuming no predictable polling error") +
+  theme(plot.title = element_text(hjust = .5),plot.subtitle = element_text(hjust = .5),axis.ticks.y = element_blank())
+#2020
+final_2020 %>%
+  ggplot() +
+  geom_vline(xintercept = 0) +
+  geom_hline(yintercept = 0) +
+  geom_histogram(mapping = aes(
+    x = poll_error*100
+  )) +
+  geom_vline(
+    xintercept = mean(final_2020$poll_error,na.rm = TRUE)*100,
+    size = 1.5,col = "red"
+    ) +
+  geom_text(aes(
+    x = 8,y = 110,
+    label = paste("Average poll error (against Trump) = ",round(mean(final_2020$poll_error,na.rm = TRUE),4)*100,"%",sep = "")
+  )) +
+  scale_x_continuous(breaks = seq(-25,20,by = 5)) +
+  geom_text(aes(
+    x = 8,y = 100,
+    label = paste("Robust standard errors = ",round(sqrt(var(final_2020$poll_error,na.rm = TRUE)),4)*100,"%",sep = "")
+  )) +
+  theme(
+    axis.ticks.y = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.title.y = element_blank(),
+    plot.title = element_text(hjust = .5),
+    plot.subtitle = element_text(hjust = .5)
+    ) +
+  xlab("Polling Error Against Trump, Percentage") +
+  labs(
+    title = "Polling Error Distribution",
+    subtitle = "2020 Cycle, ratio of Republican Votes Cast"
+    ) +
+  geom_text(
+    aes(x = -3, y =110),
+    label = "Number of Polls Considered:"
+    ) +
+  geom_text(
+    aes(x = -3,y = 100),
+    label = nrow(final_2020)
+  )
+
+###Distribution Assuming 2016 Error
+data.frame(x = seq(-10,10)) %>%
+  ggplot(aes(
+    x = x,
+    y = dnorm(
+      x = x,
+      mean = mean(final_2016$poll_error,na.rm = TRUE)*100,
+      sd = sqrt(var(final_2020$poll_error,na.rm = TRUE))*100
+      )
+  )) +
+  geom_density(stat = "identity") +
+  geom_vline(xintercept = mean(final_2020$poll_error)*100) +
+  xlab("Polling Error against Trump, Percent") + 
+  theme(
+    axis.title.y = element_blank(),axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+    ) +
+  labs(title = "Distribution of Polling Errors",subtitle = "Assuming 2016 distribution, ratio of Republican Votes Cast") +
+  geom_text(
+    aes(x = -5, y = .10),
+    label = paste("Mean 2020 polling error Z-Score vs 2016 distribution:")
+    ) +
+  geom_text(
+    aes(x = -5,y = .09), label = round((mean(final_2020$poll_error)-mean(final_2016$poll_error,na.rm = TRUE))/sqrt(var(final_2016$poll_error,na.rm = TRUE)),4)
+    ) + theme(plot.title = element_text(hjust = .5),plot.subtitle = element_text(hjust = .5)) + geom_hline(yintercept = 0)
+
+### US Map Graphs
+#2016
+state_2016_off <- final_2016 %>% group_by(state) %>%
+  summarise(avg_error = round(mean(poll_error),2)) %>% .[-44,] %>%
+  mutate(
+    longitude = state.center$x,latitude = state.center$y,
+    region = tolower(state)
+    ) %>%
+  .[,c(3,4,1,5,2)] %>%
+  filter(state %in% c("Hawaii","Alaska"))
+state_2016 <- final_2016 %>% group_by(state) %>%
+  summarise(avg_error = round(mean(poll_error),2)) %>% .[-44,] %>%
+  mutate(
+    longitude = state.center$x,latitude = state.center$y,
+    region = tolower(state)
+    ) %>%
+  .[,c(3,4,1,5,2)] %>% 
+  left_join(map_data("state")) %>%
+  filter(!state %in% c("Hawaii","Alaska"))
+ggplot(data = state_2016,aes(x = long, y = lat,group = group, fill = avg_error)) +
+  geom_polygon(color = "grey") + guides(fill = FALSE) +
+  geom_text(
+    data = state_2016,
+    aes(x = longitude,y = latitude,label = paste(avg_error*100,"%",sep = "")),
+    size = 3
+    ) +
+  scale_fill_gradient(low = "white",high = "firebrick1") +
+  labs(
+    title = "2016 Average Polling Errors Against Trump",
+    subtitle = "Considering the ratio of Democratic vs Republican Votes Only"
+    ) +
+  theme(
+    plot.title = element_text(hjust = .5),
+    plot.subtitle = element_text(hjust = .5),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    axis.title = element_blank()
+    ) +
+  geom_text(aes(x = -120,y = 30),label = paste("Alaska=",state_2016_off$avg_error[1]*100,"%",sep = "")) +
+  geom_text(aes(x = -120,y = 28),label = paste("Hawaii=",state_2016_off$avg_error[2]*100,"%",sep = ""))
+#2020
+state_2020_off <- final_2020 %>% group_by(state) %>%
+  summarise(avg_error = round(mean(poll_error),2)) %>%
+  mutate(
+    longitude = state.center$x,latitude = state.center$y,
+    region = tolower(state)
+    ) %>%
+  .[,c(3,4,1,5,2)] %>%
+  filter(state %in% c("Hawaii","Alaska"))
+state_2020 <- final_2020 %>% group_by(state) %>%
+  summarise(avg_error = round(mean(poll_error),2)) %>%
+  mutate(
+    longitude = state.center$x,latitude = state.center$y,
+    region = tolower(state)
+    ) %>%
+  .[,c(3,4,1,5,2)] %>% 
+  left_join(map_data("state")) %>%
+  filter(!state %in% c("Hawaii","Alaska"))
+ggplot(data = state_2020,aes(x = long, y = lat,group = group, fill = avg_error)) +
+  geom_polygon(color = "grey") + guides(fill = FALSE) +
+  geom_text(
+    data = state_2020,
+    aes(x = longitude,y = latitude,label = paste(avg_error*100,"%",sep = "")),
+    size = 3
+    ) +
+  scale_fill_gradient(low = "white",high = "firebrick1") +
+  labs(
+    title = "2020 Average Polling Errors Against Trump",
+    subtitle = "Considering the ratio of Democratic vs Republican Votes Only"
+    ) +
+  theme(
+    plot.title = element_text(hjust = .5),
+    plot.subtitle = element_text(hjust = .5),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    axis.title = element_blank()
+    )+
+  geom_text(aes(x = -120,y = 30),label = paste("Alaska=",state_2020_off$avg_error[1]*100,"%",sep = "")) +
+  geom_text(aes(x = -120,y = 28),label = paste("Hawaii=",state_2020_off$avg_error[2]*100,"%",sep = ""))
+```
