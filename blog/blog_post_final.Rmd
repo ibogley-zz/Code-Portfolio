@@ -1,7 +1,7 @@
 ---
 title: "US Presidential Poll Errors, 2016 and 2020"
 author: "Ian Bogley"
-date: "11/19/2020"
+date: "11/26/2020"
 output: html_document
 ---
 
@@ -18,6 +18,10 @@ Also feel free to take a look at my own website or social media:
 https://ibogley.github.io/website/
 
 https://www.linkedin.com/in/ian-bogley-857088196/
+
+The original files I used can be found here:
+
+https://github.com/ibogley/Code-Portfolio/tree/master/blog
 
 # Setup
 Before we start, these will be the packages we need:
@@ -430,6 +434,7 @@ ggplot(data = state_2020,aes(x = long, y = lat,group = group, fill = avg_error))
   geom_text(aes(x = -120,y = 30),label = paste("Alaska=",state_2020_off$avg_error[1]*100,"%",sep = "")) +
   geom_text(aes(x = -120,y = 28),label = paste("Hawaii=",state_2020_off$avg_error[2]*100,"%",sep = ""))
 ```
+
 Note at the time of this writing (11/26/2020), New York is still only reporting at 85%, and it is estimated that most of the ballots yet to be counted will be democratically leaning. This means that in the coming weeks the polling error in New York may drop as well.
 
 It appears that the polling errors did decrease between 2016 and 2020. Note especially the drops in the midwest. Where many had a polling error of 5~6% in 2016, 2020 saw in between 3~4% for most of the region.
@@ -450,12 +455,17 @@ However, I would recommend that you checkout fivethirtyeight for further researc
 # Sources
 
 Silver, Nate. “The Polls Are All Right.” FiveThirtyEight, FiveThirtyEight, 30 May 2018, fivethirtyeight.com/features/the-polls-are-all-right/. 
+
 Silver, Nate. “The Polls Weren't Great. But That's Pretty Normal.” FiveThirtyEight, FiveThirtyEight, 11 Nov. 2020, fivethirtyeight.com/features/the-polls-werent-great-but-thats-pretty-normal/. 
+
+
 Polling data was extracted from a csv file that can be found here:
+
 https://www.kaggle.com/fivethirtyeight/2016-election-polls
+
 https://projects.fivethirtyeight.com/polls/president-general/
 
-# Appendix: Reproducable Code
+# Appendix 2: Reproducable Code
 
 I will also include the csv files in a github repo associated with this project for your use.
 
